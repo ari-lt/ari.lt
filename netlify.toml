@@ -49,43 +49,43 @@
 
 [[redirects]]
     from = "/user"
-    to = "https://user.ari.lt/"
+    to = "https://us.ari.lt/"
     status = 301
     force = true
 
 [[redirects]]
     from = "/git/*"
-    to = "https://github.com/TruncatedDinosour/website/:splat"
+    to = "/lh/ari.lt/:splat"
     status = 301
     force = true
 
 [[redirects]]
     from = "/dotfiles/*"
-    to = "https://github.com/TruncatedDinosour/dotfiles-cleaned/:splat"
+    to = "/gh/dotfiles-cleaned/:splat"
     status = 301
     force = true
 
 [[redirects]]
     from = "/tdotfiles/*"
-    to = "https://github.com/TruncatedDinosour/dotfiles-termux/:splat"
+    to = "/gh/dotfiles-termux/:splat"
     status = 301
     force = true
 
 [[redirects]]
     from = "/dotfile/:distro/*"
-    to = "https://github.com/TruncatedDinosour/dotfiles-cleaned/tree/:distro/:splat"
+    to = "/gh/dotfiles-cleaned/tree/:distro/:splat"
     status = 301
     force = true
 
 [[redirects]]
     from = "/overlay/*"
-    to = "https://github.com/TruncatedDinosour/dinolay/:splat"
+    to = "/gh/dinolay/:splat"
     status = 301
     force = true
 
 [[redirects]]
     from = "/gentooatom/*"
-    to = "https://github.com/TruncatedDinosour/dinolay/tree/main/:splat"
+    to = "/gh/dinolay/tree/main/:splat"
     status = 301
     force = true
 

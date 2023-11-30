@@ -1,15 +1,16 @@
 <h1 align="center">Website</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/github/last-commit/TruncatedDinosour/website?color=red&style=flat-square">
-  <img src="https://img.shields.io/github/repo-size/TruncatedDinosour/website?color=red&style=flat-square">
-  <img src="https://img.shields.io/github/issues/TruncatedDinosour/website?color=red&style=flat-square">
-  <img src="https://img.shields.io/github/stars/TruncatedDinosour/website?color=red&style=flat-square">
+  <img src="https://img.shields.io/github/last-commit/ari-lt/website?color=red&style=flat-square">
+  <img src="https://img.shields.io/github/repo-size/ari-lt/website?color=red&style=flat-square">
+  <img src="https://img.shields.io/github/issues/ari-lt/website?color=red&style=flat-square">
+  <img src="https://img.shields.io/github/stars/ari-lt/website?color=red&style=flat-square">
 </p>
 
 <p align="center">
-    <a href="https://app.netlify.com/sites/ari-web/deploys">
-        <img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/4ac67547-6444-4c67-9a54-c7f8fb28427b/deploy-status"/> </a> </p>
+    <a href="https://app.netlify.com/sites/ari-lt/deploys">
+        <img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/d82361d9-c471-41d0-ba9b-b5fbe07ca843/deploy-status" /> </a>
+</p>
 
 ### [My website's](https://www.ari.lt/) source code.
 
