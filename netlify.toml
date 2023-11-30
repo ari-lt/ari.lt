@@ -92,7 +92,13 @@
 # https://answers.netlify.com/t/how-do-i-do-cross-domain-redirects-to-github-repositories-from-netlify/52258/2?u=b00bleatea
 [[redirects]]
     from = "/gh/*"
-    to = "https://github.com/TruncatedDinosour/:splat"
+    to = "https://github.com/TruncatedDinoSour/:splat"
+    status = 301
+    force = true
+
+[[redirects]]
+    from = "/lh/*"
+    to = "https://github.com/ari-lt/:splat"
     status = 301
     force = true
 
