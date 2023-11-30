@@ -49,7 +49,7 @@
 
 [[redirects]]
     from = "/user"
-    to = "https://user.ari-web.xyz/"
+    to = "https://user.ari.lt/"
     status = 301
     force = true
 
@@ -100,19 +100,19 @@
 
 [[redirects]]
     from = "/data/*"
-    to = "https://files.ari-web.xyz/files/:splat"
+    to = "https://files.ari.lt/files/:splat"
     status = 301
     force = true
 
 [[redirects]]
     from = "/page/blog/*"
-    to = "https://blog.ari-web.xyz/:splat"
+    to = "https://blog.ari.lt/:splat"
     status = 301
     force = true
 
 [[redirects]]
     from = "/page/blog"
-    to = "https://blog.ari-web.xyz/"
+    to = "https://blog.ari.lt/"
     status = 301
     force = true
 
@@ -124,7 +124,7 @@
 
 [[redirects]]
     from = "/etc"
-    to = "https://etc.ari-web.xyz/"
+    to = "https://etc.ari.lt/"
     status = 301
     force = true
 
@@ -144,7 +144,7 @@
 
 [[redirects]]
     from = "/mr"
-    to = "https://blog.ari-web.xyz/b/my-music-artist-recommendations/"
+    to = "https://blog.ari.lt/b/my-music-artist-recommendations/"
     status = 301
     force = true
 

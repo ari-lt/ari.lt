@@ -1,5 +1,5 @@
 User-agent: *
 Disallow: /content/*
 Allow: *
-Sitemap: https://ari-web.xyz/sitemap.xml
+Sitemap: https://ari.lt/sitemap.xml
 

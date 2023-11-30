@@ -1,5 +1,5 @@
 {
-    "name": "ari-web.xyz",
+    "name": "ari.lt",
     "version": "1.0.0",
     "description": "My website's source code",
     "scripts": {
@@ -8,7 +8,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://ari-web.xyz/gh/website.git"
+        "url": "https://ari.lt/gh/website.git"
     },
     "keywords": [
         "website",
@@ -23,9 +23,9 @@
     "author": "Ari Archer <ari.web.xyz@gmail.com>",
     "license": "SEE LICENSE IN LICENSE",
     "bugs": {
-        "url": "https://ari-web.xyz/git/issues"
+        "url": "https://ari.lt/git/issues"
     },
-    "homepage": "https://ari-web.xyz/git#readme",
+    "homepage": "https://ari.lt/git#readme",
     "devDependencies": {
         "autoprefixer-cli": "^1.0.0",
         "eslint": "^8.14.0",

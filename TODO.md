@@ -1,7 +1,7 @@
 -   [x] Fac command: POST to https://elijah-dev.tk/fa.php with the fa parameter being some code
     -   Used to have it, removed it on 2022/10/20
 -   [x] Chat subdomain using WebRTC
-    -   We have [CaO](https://user.ari-web.xyz/), not going to implement
+    -   We have [CaO](https://user.ari.lt/), not going to implement
 -   [x] Store files in IndexedDB
     -   [Overly complex API, i dont want to deliver this much JS, i already deliver quite a package](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)
 -   [x] Export/Import

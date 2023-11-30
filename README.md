@@ -11,11 +11,11 @@
     <a href="https://app.netlify.com/sites/ari-web/deploys">
         <img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/4ac67547-6444-4c67-9a54-c7f8fb28427b/deploy-status"/> </a> </p>
 
-### [My website's](https://www.ari-web.xyz/) source code.
+### [My website's](https://www.ari.lt/) source code.
 
 # Customising when self-hosting
 
-1. Clone the repository: `git clone https://ari-web.xyz/git ari-web`
+1. Clone the repository: `git clone https://ari.lt/git ari-web`
 2. Enter the directory: `cd ari-web`
 3. See the `/content/styles/config` and `/content/js/config` directories.
 4. Open it in live server: `python3 -m http.server 5500`
@@ -31,7 +31,7 @@ those JSON files in the api
 
 So what you do, replace all `.` in the API name with \_,
 then make the request to `/api_hash/..._hash.txt` and you will
-get the hash, for example: <https://www.ari-web.xyz/api_hash/apis_json_hash.txt>
+get the hash, for example: <https://www.ari.lt/api_hash/apis_json_hash.txt>
 
 # Standard
 
@@ -40,7 +40,7 @@ how to properly modify ari-web
 
 # Usage API
 
-The [usage api](https://www.ari-web.xyz/api/usage.json)
+The [usage api](https://www.ari.lt/api/usage.json)
 has all the statistics I get from netlify, it serves as
 an archive and growth monitor
 
@@ -77,11 +77,11 @@ how much per avg sites are using:
 
 # Subdomains
 
--   https://www.ari-web.xyz/ (source: https://ari-web.xyz/git)
--   https://files.ari-web.xyz/ (source: https://files.ari-web.xyz/git)
--   https://blog.ari-web.xyz/ (source: https://blog.ari-web.xyz/git)
--   https://legacy.blog.ari-web.xyz/ (source: https://legacy.blog.ari-web.xyz/git)
--   https://school.ari-web.xyz/ (source: proprietary (I don't want people snooping on my homework lol))
--   https://user.ari-web.xyz/ (source: https://user.ari-web.xyz/git)
--   https://etc.ari-web.xyz/ (source: https://etc.ari-web.xyz/git)
--   https://a.ari-web.xyz/ (source: https://a.ari-web.xyz/git)
+-   https://www.ari.lt/ (source: https://ari.lt/git)
+-   https://files.ari.lt/ (source: https://files.ari.lt/git)
+-   https://blog.ari.lt/ (source: https://blog.ari.lt/git)
+-   https://legacy.blog.ari.lt/ (source: https://legacy.blog.ari.lt/git)
+-   https://school.ari.lt/ (source: proprietary (I don't want people snooping on my homework lol))
+-   https://user.ari.lt/ (source: https://user.ari.lt/git)
+-   https://etc.ari.lt/ (source: https://etc.ari.lt/git)
+-   https://a.ari.lt/ (source: https://a.ari.lt/git)

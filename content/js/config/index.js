@@ -1,13 +1,13 @@
 "use strict";
 
-const BLOG_SITE = "https://blog.ari-web.xyz/";
-const COMMENT_SITE = "https://user.ari-web.xyz/";
+const BLOG_SITE = "https://blog.ari.lt/";
+const COMMENT_SITE = "https://user.ari.lt/";
 
 const FETCH_BLOG_POSTS = () =>
-    fetch("https://blog.ari-web.xyz/recents.json").then((r) => r.json());
+    fetch("https://blog.ari.lt/recents.json").then((r) => r.json());
 
 const FETCH_COMMENTS = () => {
-    return fetch("https://server.ari-web.xyz/total")
+    return fetch("https://server.ari.lt/total")
         .then((r) => r.text())
         .then((t) => {
             let total = parseInt(t);
@@ -16,7 +16,7 @@ const FETCH_COMMENTS = () => {
             if (fetch_from < 0) fetch_from = total;
 
             return fetch(
-                `https://server.ari-web.xyz/${fetch_from}/${total}`
+                `https://server.ari.lt/${fetch_from}/${total}`
             ).then((r) => r.json());
         });
 };

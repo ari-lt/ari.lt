@@ -6,9 +6,9 @@ it follows and what standard it practices
 -   folder structure
     -   api
         -   1 API route
-            -   e.g. <https://blog.ari-web.xyz/blog.json>, you can make the request to
+            -   e.g. <https://blog.ari.lt/blog.json>, you can make the request to
                 that route and thats all, hashing of it works basically the same,
-                but wtihout `/api/` -- <https://blog.ari-web.xyz/blog_json_hash.txt>
+                but wtihout `/api/` -- <https://blog.ari.lt/blog_json_hash.txt>
         -   \>1 API route
             -   use `/api` directory for APIs based on JSON if you have multiple ones
             -   `/api/*.json` is any API route
@@ -23,17 +23,17 @@ it follows and what standard it practices
             -   `styles` / `css` -- CSS ( or SCSS )
             -   `etc` -- other content
     -   `/favicons/`
-        -   this directory should purely be on the parent level domain, e.g. `ari-web.xyz`,
+        -   this directory should purely be on the parent level domain, e.g. `ari.lt`,
             this should include all of your favicons and its versions / revisions you might
             use
     -   `/page/`
         -   this should include all of your pages
         -   this directory should purely include directories and text files
             use directories for pages and text files for pages that dont make
-            use of html ( e.g. <https://ari-web.xyz/page/minimal.txt>, otherwise
+            use of html ( e.g. <https://ari.lt/page/minimal.txt>, otherwise
             you should have a subdirectory and in it you should have an `index.html`
-            file, e.g. <https://ari-web.xyz/page/info/index.html>, which compresses
-            into <https://ari-web.xyz/page/info/>
+            file, e.g. <https://ari.lt/page/info/index.html>, which compresses
+            into <https://ari.lt/page/info/>
     -   `/index.html`
         -   as per HTTP this is just your home page -- `/`, you should not put it in
             `/page/`, this should be in the root level directory
