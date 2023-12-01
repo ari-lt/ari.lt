@@ -1,5 +1,7 @@
 "use strict";
 
+/* TODO comments ( us.ari.lt ) */
+
 function resize_term() {
     document.getElementById("term-wrap").style.width = `${
         document.querySelector("article").offsetWidth
@@ -11,7 +13,7 @@ async function main() {
     resize_term();
 
     let blog = document.getElementById("blog-posts");
-    let comment = document.getElementById("latest-comments");
+    // let comment = document.getElementById("latest-comments");
     let more = document.getElementById("discover");
 
     let site = document.getElementById("site");
@@ -64,27 +66,27 @@ async function main() {
         });
     });
 
-    FETCH_COMMENTS().then((j) => {
-        comment.innerText = "";
+    // FETCH_COMMENTS().then((j) => {
+    //     comment.innerText = "";
 
-        Object.entries(j)
-            .reverse()
-            .forEach((post) => {
-                let id = post[0];
-                post = post[1];
+    //     Object.entries(j)
+    //         .reverse()
+    //         .forEach((post) => {
+    //             let id = post[0];
+    //             post = post[1];
 
-                mkelem(
-                    "li",
-                    [
-                        mkelem("a", `#${id} by ${post[0]}`, null, {
-                            href: `${COMMENT_SITE}/#${id}`,
-                        }),
-                        mkelem("pre", linkify(post[1], COMMENT_SITE)),
-                    ],
-                    comment,
-                );
-            });
-    });
+    //             mkelem(
+    //                 "li",
+    //                 [
+    //                     mkelem("a", `#${id} by ${post[0]}`, null, {
+    //                         href: `${COMMENT_SITE}/#${id}`,
+    //                     }),
+    //                     mkelem("pre", linkify(post[1], COMMENT_SITE)),
+    //                 ],
+    //                 comment,
+    //             );
+    //         });
+    // });
 
     FETCH_PAGES().then((j) => {
         more.innerText = "";
