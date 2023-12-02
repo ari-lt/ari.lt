@@ -1,0 +1,19 @@
+body {
+    line-height: 1.5;
+    background-color: #181818;
+    font-family: sans-serif;
+    color: whitesmoke;
+    padding: 2em;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+p {
+    margin-top: 1em;
+}
