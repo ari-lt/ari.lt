@@ -162,7 +162,7 @@
 
 [[redirects]]
     from = "/paypal"
-    to = "https://www.paypal.com/donate/?hosted_button_id=5ULJ3LCQHK4KY"
+    to = "https://paypal.me/ar1ja"
     status = 301
     force = true
 
