@@ -198,6 +198,13 @@
 # --------------
 
 [[headers]]
+    for = "/badge.png"
+
+    [headers.values]
+        Access-Control-Allow-Origin = "*"
+        Access-Control-Allow-Methods = "GET"
+
+[[headers]]
     for = "/api/*"
 
     [headers.values]

@@ -14,6 +14,22 @@
 
 ### [My website's](https://www.ari.lt/) source code.
 
+# Badge
+
+in html :
+
+```html
+<a href="https://ari.lt/"> <img src="https://ari.lt/badge.png" loading="lazy" alt="ari-web badge" /> </a>
+```
+
+in markdown :
+
+```md
+[![ari-web badge](https://ari.lt/badge.png)](https://ari.lt/)
+```
+
+[![ari-web badge](https://ari.lt/badge.png)](https://ari.lt/)
+
 # Customising when self-hosting
 
 1. Clone the repository: `git clone https://ari.lt/git ari-web`
