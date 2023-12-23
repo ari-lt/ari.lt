@@ -50,7 +50,7 @@ For more information, please refer to <http://unlicense.org/>
 in html :
 
 ```html
-<a href="https://ari.lt/"> <img src="https://ari.lt/badge.png" loading="lazy" alt="ari-web badge" /> </a>
+<a href="https://ari.lt/"> <img src="https://ari.lt/badge.png" loading="lazy" alt="ari-web badge" height="31px" width="88px" /> </a>
 ```
 
 in markdown :
