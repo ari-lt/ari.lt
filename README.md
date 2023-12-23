@@ -1,10 +1,10 @@
 <h1 align="center">Website</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/github/last-commit/ari-lt/website?color=red&style=flat-square">
-  <img src="https://img.shields.io/github/repo-size/ari-lt/website?color=red&style=flat-square">
-  <img src="https://img.shields.io/github/issues/ari-lt/website?color=red&style=flat-square">
-  <img src="https://img.shields.io/github/stars/ari-lt/website?color=red&style=flat-square">
+  <img src="https://img.shields.io/github/last-commit/ari-lt/ari.lt?color=red&style=flat-square">
+  <img src="https://img.shields.io/github/repo-size/ari-lt/ari.lt?color=red&style=flat-square">
+  <img src="https://img.shields.io/github/issues/ari-lt/ari.lt?color=red&style=flat-square">
+  <img src="https://img.shields.io/github/stars/ari-lt/ari.lt?color=red&style=flat-square">
 </p>
 
 <p align="center">
