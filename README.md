@@ -16,7 +16,7 @@
 
 # Badge
 
-the badge is licensed under unlicense :
+the badge( s ) is licensed under UNLICENSE :
 
 ```
 UNLICENSE
@@ -47,6 +47,10 @@ OTHER DEALINGS IN THE SOFTWARE.
 For more information, please refer to <http://unlicense.org/>
 ```
 
+## original
+
+author : Ari Archer - [@TruncatedDinosour](https://ari.lt/gh) - <https://ari.lt/> - <ari.web.xyz@gmail.com>
+
 in html :
 
 ```html
@@ -60,6 +64,24 @@ in markdown :
 ```
 
 [![ari-web badge](https://ari.lt/badge.png)](https://ari.lt/)
+
+## yellow
+
+author : Tobskep - <https://tobskep.com/>
+
+in html :
+
+```html
+<a href="https://ari.lt/"> <img src="https://ari.lt/badge-yellow.png" loading="lazy" alt="ari-web badge" height="31px" width="88px" /> </a>
+```
+
+in markdown :
+
+```md
+[![ari-web badge](https://ari.lt/badge-yellow.png)](https://ari.lt/)
+```
+
+[![ari-web badge](https://ari.lt/badge-yellow.png)](https://ari.lt/)
 
 # Customising when self-hosting
 
