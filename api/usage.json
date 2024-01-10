@@ -86,5 +86,13 @@
             "ari-web.xyz": 11.5,
             "files.ari-web.xyz": 6.6
         }
+    },
+    "2024-01-10": {
+        "total": 687,
+        "top": {
+            "ari.lt": 456.5,
+            "blog.ari.lt": 192.8,
+            "legacy.blog.ari.lt": 12.2
+        }
     }
 }

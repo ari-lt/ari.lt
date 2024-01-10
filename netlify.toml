@@ -161,12 +161,6 @@
     force = true
 
 [[redirects]]
-    from = "/paypal"
-    to = "https://paypal.me/ar1ja"
-    status = 301
-    force = true
-
-[[redirects]]
     from = "/:page"
     to = "/page/:page"
     status = 302
