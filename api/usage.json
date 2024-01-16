@@ -94,5 +94,13 @@
             "blog.ari.lt": 192.8,
             "legacy.blog.ari.lt": 12.2
         }
+    },
+    "2024-01-16": {
+        "total": 941,
+        "top": {
+            "ari.lt": 648.4,
+            "blog.ari.lt": 246.4,
+            "legacy.blog.ari.lt": 14.6
+        }
     }
 }
