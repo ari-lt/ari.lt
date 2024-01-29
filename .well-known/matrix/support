@@ -3,6 +3,7 @@
         {
             "matrix_id": "@ari:ari.lt",
             "email_address": "ari.web.xyz@gmail.com",
+            "lt.ari.room": "#root:ari.lt",
             "role": "m.role.admin"
         }
     ],
