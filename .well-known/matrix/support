@@ -8,5 +8,5 @@
     ],
     "support_page": "https://ari.lt/matrix",
     "lt.ari.room": "#root:ari.lt",
-    "lt.ari.support_room": "#list:ari.lt"
+    "lt.ari.abuse": "#abuse:ari.lt"
 }
