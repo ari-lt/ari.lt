@@ -1,0 +1,24 @@
+{
+	"website": {
+		"en": "https://ari.lt/page/xmpp"
+	},
+	"alternativeJids": [],
+	"busFactor": 1,
+	"organization": "private person",
+	"passwordReset": {
+		"en": "https://ari.lt/page/xmpp#registration"
+	},
+	"serverTesting": true,
+	"maximumHttpFileUploadTotalSize": 0,
+	"maximumHttpFileUploadStorageTime": 14,
+	"maximumMessageArchiveManagementStorageTime": 14,
+	"professionalHosting": false,
+	"freeOfCharge": true,
+	"legalNotice": {
+		"en": "https://ari.lt/page/xmpp#privacy"
+	},
+	"serverLocations": [
+		"de"
+	],
+	"since": "2024-02-14"
+}
