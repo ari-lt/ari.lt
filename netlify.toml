@@ -221,6 +221,13 @@
         Content-Type = "application/json"
 
 [[headers]]
+    for = "/.well-known/*"
+
+    [headers.values]
+        Access-Control-Allow-Origin = "*"
+        Access-Control-Allow-Methods = "GET"
+
+[[headers]]
     for = "/*"
 
     [headers.values]
