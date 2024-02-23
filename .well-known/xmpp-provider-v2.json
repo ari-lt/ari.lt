@@ -14,7 +14,9 @@
 	"maximumMessageArchiveManagementStorageTime": 14,
 	"professionalHosting": false,
 	"freeOfCharge": true,
-	"legalNotice": {},
+	"legalNotice": {
+		"en": "https://ari.lt/page/xmpp#privacy"
+	},
 	"serverLocations": [
 		"de"
 	],
