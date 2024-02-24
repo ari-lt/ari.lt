@@ -73,7 +73,7 @@ This file should be served with the following HTTP headers:
 -   `Access-Control-Allow-Methods` = `GET`
 -   `Content-Type` = `application/json`
 
-# Services
+## Services
 
 The services configuration, `.well-known/netowrk/server.json`, has the following structure:
 
