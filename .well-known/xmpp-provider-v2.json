@@ -12,7 +12,7 @@
 	"maximumHttpFileUploadTotalSize": 0,
 	"maximumHttpFileUploadStorageTime": 14,
 	"maximumMessageArchiveManagementStorageTime": 14,
-	"professionalHosting": false,
+	"professionalHosting": true,
 	"freeOfCharge": true,
 	"legalNotice": {
 		"en": "https://ari.lt/page/xmpp#privacy"
