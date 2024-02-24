@@ -147,11 +147,4 @@ how much per avg sites are using:
 
 # Subdomains
 
--   https://www.ari.lt/ (source: https://ari.lt/git)
--   https://files.ari.lt/ (source: https://files.ari.lt/git)
--   https://blog.ari.lt/ (source: https://blog.ari.lt/git)
--   https://legacy.blog.ari.lt/ (source: https://legacy.blog.ari.lt/git)
--   https://school.ari.lt/ (source: proprietary (I don't want people snooping on my homework lol))
--   https://user.ari.lt/ (source: https://user.ari.lt/git)
--   https://etc.ari.lt/ (source: https://etc.ari.lt/git)
--   https://a.ari.lt/ (source: https://a.ari.lt/git)
+Check <https://ari.lt/lh>

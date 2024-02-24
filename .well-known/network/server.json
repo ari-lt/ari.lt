@@ -17,15 +17,16 @@
             "website": "https://ari.lt/",
             "role": "owner",
             "matrix": "@ari:ari.lt",
-            "xmpp": "ari@ari.lt"
+            "xmpp": "ari@ari.lt",
+            "of": ["*"]
         },
         {
             "name": "Sininenkissa",
             "email": "sininenkissa@ari.lt",
-            "website": null,
             "role": "admin",
             "matrix": "@sininenkissa:ari.lt",
-            "xmpp": "sininenkissa@ari.lt"
+            "xmpp": "sininenkissa@ari.lt",
+            "of": ["*"]
         }
     ],
     "name": "Ari::web -> Server",

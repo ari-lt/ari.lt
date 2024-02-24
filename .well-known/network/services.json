@@ -14,7 +14,6 @@
         "description": "Vim or Emacs?",
         "license": "GPL-3.0-or-later",
         "public": true,
-        "extra": null,
         "keywords": ["ari-web", "poll", "statistics", "vim", "emacs"],
         "privacy": "https://ari.lt/privacy",
         "terms": "https://ari.lt/tos"
@@ -44,7 +43,6 @@
         "description": "Cryptpad instance: End-to-end encrypted collabware, hosted by ari-web",
         "license": "MIT",
         "public": true,
-        "extra": null,
         "keywords": ["ari-web", "e2ee", "cryptpad", "collabware"],
         "privacy": "https://ari.lt/privacy",
         "terms": "https://ari.lt/tos"
@@ -64,7 +62,6 @@
         "description": "Ari-web roundcube mail instance",
         "license": "MIT",
         "public": true,
-        "extra": null,
         "keywords": [
             "ari-web",
             "email",
@@ -80,7 +77,6 @@
         "description": "Schildichat Matrix client instance by ari-web",
         "license": "MIT",
         "public": true,
-        "extra": null,
         "keywords": ["ari-web", "schildichat", "schildi", "matrix client"],
         "privacy": "https://ari.lt/matrix",
         "terms": "https://ari.lt/matrix"
@@ -90,7 +86,6 @@
         "description": "Cinny Matrix client instance by ari-web",
         "license": "MIT",
         "public": true,
-        "extra": null,
         "keywords": ["ari-web", "cinny", "matrix client"],
         "privacy": "https://ari.lt/matrix",
         "terms": "https://ari.lt/matrix"
@@ -100,7 +95,6 @@
         "description": "Ari-web privatebin instance: End-to-end encrypted pastebin",
         "license": "MIT",
         "public": true,
-        "extra": null,
         "keywords": ["ari-web", "privatebin", "pastebin", "e2ee"],
         "privacy": "https://ari.lt/privacy",
         "terms": "https://ari.lt/tos"
