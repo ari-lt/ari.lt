@@ -36,6 +36,6 @@
         "ram": 16,
         "cpu": 6,
         "storage": 400,
-        "network": 800
+        "network": 0.8
     }
 }
