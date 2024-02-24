@@ -213,6 +213,14 @@
         Access-Control-Allow-Methods = "GET"
 
 [[headers]]
+    for = "/.well-known/network/*"
+
+    [headers.values]
+        Access-Control-Allow-Origin = "*"
+        Access-Control-Allow-Methods = "GET"
+        Content-Type = "application/json"
+
+[[headers]]
     for = "/.well-known/matrix/*"
 
     [headers.values]
