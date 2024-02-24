@@ -19,7 +19,7 @@ The server file, `.well-known/network/server.json`, has the following structure:
     "keywords": [...],
     "staff": [
         {"name": "Ari Archer", "email": "ari@ari.lt", "website": "https://ari.lt/", "role": "owner", "matrix": "@ari:ari.lt", "xmpp": "ari@ari.lt", "of": ["*"]},
-        {..., "xmpp": "meow@ari.lt", "of": "xmpp.ari.lt"},
+        {..., "of": ["xmpp.ari.lt"]},
         ...
     ],
     "name": "Ari::web -> Server",
