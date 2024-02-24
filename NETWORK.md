@@ -30,7 +30,7 @@ The server file, `.well-known/network/server.json`, has the following structure:
         "ram": 16,
         "cpu": 6,
         "storage": 400,
-        "network": 800
+        "network": 0.8
     }
 }
 ```
@@ -63,7 +63,7 @@ And this is what the fields mean:
     -   `ram`: The memory/RAM your server has in total, excluding swap.
     -   `cpu`: The CPU threads on your server.
     -   `storage`: The total storage your server has.
-    -   `network`: The network speed in GBit/s.
+    -   `network`: The network speed in GBit/s. (for example 0.8 is 800 mbit/s)
 
 That is all for the server configuration
 
