@@ -9,7 +9,7 @@
 		"en": "https://ari.lt/page/xmpp#registration"
 	},
 	"serverTesting": true,
-	"maximumHttpFileUploadTotalSize": 0,
+	"maximumHttpFileUploadTotalSize": 100,
 	"maximumHttpFileUploadStorageTime": 14,
 	"maximumMessageArchiveManagementStorageTime": 14,
 	"professionalHosting": true,
