@@ -1,0 +1,112 @@
+{
+    "matrix.ari.lt": {
+        "source": "https://matrix.ari.lt/git",
+        "description": "The ari.lt Matrix homeserver using Dendrite",
+        "license": "MIT",
+        "public": false,
+        "extra": "Required to contact admin for signup",
+        "keywords": ["ari-web", "matrix", "messaging", "im", "dendrite"],
+        "privacy": "https://ari.lt/matrix",
+        "terms": "https://ari.lt/matrix"
+    },
+    "vim-or-emacs.ari.lt": {
+        "source": "https://vim-or-emacs.ari.lt/git",
+        "description": "Vim or Emacs?",
+        "license": "GPL-3.0-or-later",
+        "public": true,
+        "keywords": ["ari-web", "poll", "statistics", "vim", "emacs"],
+        "privacy": "https://ari.lt/privacy",
+        "terms": "https://ari.lt/tos"
+    },
+    "git.ari.lt": {
+        "source": "https://git.ari.lt/git",
+        "description": "Ari-web forgejo instance",
+        "license": "MIT",
+        "public": true,
+        "extra": "Required to contact admin for signup",
+        "keywords": ["ari-web", "git", "forgejo"],
+        "privacy": "https://ari.lt/privacy",
+        "terms": "https://ari.lt/tos"
+    },
+    "searx.ari.lt": {
+        "source": "https://searx.ari.lt/git",
+        "description": "SearXNG instance by ari-web",
+        "license": "MIT",
+        "public": true,
+        "extra": "The instance may be slow, suggest to disable a couple of search engines in settings before using",
+        "keywords": ["ari-web", "searx", "search"],
+        "privacy": "https://ari.lt/privacy",
+        "terms": "https://ari.lt/tos"
+    },
+    "pad.ari.lt": {
+        "source": "https://pad.ari.lt/git",
+        "description": "Cryptpad instance: End-to-end encrypted collabware, hosted by ari-web",
+        "license": "MIT",
+        "public": true,
+        "keywords": ["ari-web", "e2ee", "cryptpad", "collabware"],
+        "privacy": "https://ari.lt/privacy",
+        "terms": "https://ari.lt/tos"
+    },
+    "mail.ari.lt": {
+        "source": "https://mail.ari.lt/git",
+        "description": "Ari-web mailcow instance",
+        "license": "MIT",
+        "public": false,
+        "extra": "Contact Admin for an address and its aliases",
+        "keywords": ["ari-web", "email", "mailcow"],
+        "privacy": "https://ari.lt/privacy",
+        "terms": "https://ari.lt/tos"
+    },
+    "rc.ari.lt": {
+        "source": "https://rc.ari.lt/git",
+        "description": "Ari-web roundcube mail instance",
+        "license": "MIT",
+        "public": true,
+        "keywords": [
+            "ari-web",
+            "email",
+            "mailcow",
+            "email client",
+            "roundcube"
+        ],
+        "privacy": "https://ari.lt/privacy",
+        "terms": "https://ari.lt/tos"
+    },
+    "schildi.ari.lt": {
+        "source": "https://schildi.ari.lt/git",
+        "description": "Schildichat Matrix client instance by ari-web",
+        "license": "MIT",
+        "public": true,
+        "keywords": ["ari-web", "schildichat", "schildi", "matrix client"],
+        "privacy": "https://ari.lt/matrix",
+        "terms": "https://ari.lt/matrix"
+    },
+    "cinny.ari.lt": {
+        "source": "https://cinny.ari.lt/git",
+        "description": "Cinny Matrix client instance by ari-web",
+        "license": "MIT",
+        "public": true,
+        "keywords": ["ari-web", "cinny", "matrix client"],
+        "privacy": "https://ari.lt/matrix",
+        "terms": "https://ari.lt/matrix"
+    },
+    "pb.ari.lt": {
+        "source": "https://pb.ari.lt/git",
+        "description": "Ari-web privatebin instance: End-to-end encrypted pastebin",
+        "license": "MIT",
+        "public": true,
+        "keywords": ["ari-web", "privatebin", "pastebin", "e2ee"],
+        "privacy": "https://ari.lt/privacy",
+        "terms": "https://ari.lt/tos"
+    },
+    "xmpp.ari.lt": {
+        "source": "https://xmpp.ari.lt/git",
+        "description": "The ari-web XMPP server using prosody",
+        "license": "MIT",
+        "public": false,
+        "extra": "Required to contact admin for signup",
+        "keywords": ["ari-web", "e2ee", "prosody", "xmpp"],
+        "privacy": "https://ari.lt/xmpp",
+        "terms": "https://ari.lt/xmpp"
+    }
+}
