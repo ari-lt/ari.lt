@@ -13,14 +13,35 @@ The server file, `.well-known/network/server.json`, has the following structure:
 
 ```json
 {
-    "server": "us.ari.lt",
+    "server": "62.171.174.136",
     "domain": "ari.lt",
     "description": "Ari-web server",
-    "keywords": [...],
+    "keywords": [
+        "ari-web",
+        "selfhosted",
+        "email",
+        "messaging",
+        "webapps",
+        "hosting"
+    ],
     "staff": [
-        {"name": "Ari Archer", "email": "ari@ari.lt", "website": "https://ari.lt/", "role": "owner", "matrix": "@ari:ari.lt", "xmpp": "ari@ari.lt", "of": ["*"]},
-        {..., "of": ["xmpp.ari.lt"]},
-        ...
+        {
+            "name": "Ari Archer",
+            "email": "ari@ari.lt",
+            "website": "https://ari.lt/",
+            "role": "owner",
+            "matrix": "@ari:ari.lt",
+            "xmpp": "ari@ari.lt",
+            "of": ["*"]
+        },
+        {
+            "name": "Sininenkissa",
+            "email": "sininenkissa@ari.lt",
+            "role": "admin",
+            "matrix": "@sininenkissa:ari.lt",
+            "xmpp": "sininenkissa@ari.lt",
+            "of": ["*"]
+        }
     ],
     "name": "Ari::web -> Server",
     "privacy": "https://ari.lt/privacy",
@@ -33,6 +54,7 @@ The server file, `.well-known/network/server.json`, has the following structure:
         "network": 0.8
     }
 }
+
 ```
 
 (This is an example)
