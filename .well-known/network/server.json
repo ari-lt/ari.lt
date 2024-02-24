@@ -1,0 +1,41 @@
+{
+    "server": "us.ari.lt",
+    "domain": "ari.lt",
+    "description": "Ari-web server",
+    "keywords": [
+        "ari-web",
+        "selfhosted",
+        "email",
+        "messaging",
+        "webapps",
+        "hosting"
+    ],
+    "staff": [
+        {
+            "name": "Ari Archer",
+            "email": "ari@ari.lt",
+            "website": "https://ari.lt/",
+            "role": "owner",
+            "matrix": "@ari:ari.lt",
+            "xmpp": "ari@ari.lt"
+        },
+        {
+            "name": "Sininenkissa",
+            "email": "sininenkissa@ari.lt",
+            "website": null,
+            "role": "admin",
+            "matrix": "@sininenkissa:ari.lt",
+            "xmpp": "sininenkissa@ari.lt"
+        }
+    ],
+    "name": "Ari::web -> Server",
+    "privacy": "https://ari.lt/privacy",
+    "terms": "https://ari.lt/tos",
+    "affiliated-with": ["pain.agency", "h2.gay"],
+    "hardware": {
+        "ram": 16,
+        "cpu": 6,
+        "storage": 400,
+        "network": 800
+    }
+}
