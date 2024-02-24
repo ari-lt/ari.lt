@@ -2,14 +2,14 @@
 
 The network protocol consists of 2 different files:
 
--   `.well-known/netowrk/server.json` - defines the server information
--   `.well-known/netowrk/services.json` - defines the services information
+-   `.well-known/network/server.json` - defines the server information
+-   `.well-known/network/services.json` - defines the services information
 
 All the servers and services must support HTTPS.
 
 ## Server
 
-The server file, `.well-known/netowrk/server.json`, has the following structure:
+The server file, `.well-known/network/server.json`, has the following structure:
 
 ```json
 {
@@ -75,7 +75,7 @@ This file should be served with the following HTTP headers:
 
 ## Services
 
-The services configuration, `.well-known/netowrk/server.json`, has the following structure:
+The services configuration, `.well-known/network/server.json`, has the following structure:
 
 ```json
 {
