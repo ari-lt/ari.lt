@@ -2,7 +2,8 @@
     "contacts": [
         {
             "matrix_id": "@ari:ari.lt",
-            "email_address": "ari.web.xyz@gmail.com",
+            "email_address": "ari@ari.lt",
+            "lt.ari.jabber_id": "ari@ari.lt",
             "role": "m.role.admin",
             "lt.ari.website": "https://ari.lt/"
         },
@@ -21,6 +22,12 @@
             "matrix_id": "@fourier:ari.lt",
             "role": "m.role.mod",
             "lt.ari.website": "https://freetards.xyz/"
+        },
+        {
+            "matrix_id": "@sininenkissa:ari.lt",
+            "email_address": "sininenkissa@ari.lt",
+            "lt.ari.jabber_id": "sininenkissa@ari.lt",
+            "role": "m.role.mod
         }
     ],
     "support_page": "https://ari.lt/matrix",
