@@ -33,14 +33,6 @@ The server file, `.well-known/network/server.json`, has the following structure:
             "matrix": "@ari:ari.lt",
             "xmpp": "ari@ari.lt",
             "of": ["*"]
-        },
-        {
-            "name": "Sininenkissa",
-            "email": "sininenkissa@ari.lt",
-            "role": "admin",
-            "matrix": "@sininenkissa:ari.lt",
-            "xmpp": "sininenkissa@ari.lt",
-            "of": ["*"]
         }
     ],
     "name": "Ari::web -> Server",
@@ -54,7 +46,6 @@ The server file, `.well-known/network/server.json`, has the following structure:
         "network": 0.8
     }
 }
-
 ```
 
 (This is an example)
