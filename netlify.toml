@@ -16,7 +16,7 @@
 # used to be https://codeberg.org/Ashley/poketube
 [[redirects]]
     from = "/yt/*"
-    to = "https://invidious.tiekoetter.com/:splat"
+    to = "https://www.youtube.com/:splat"
     status = 302
     force = true
 
