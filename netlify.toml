@@ -161,6 +161,12 @@
     force = true
 
 [[redirects]]
+    from = "/xmr"
+    to = "https://moneroexplorer.org/search?value=451VZy8FPDXCVvKWkq5cby3V24ApLnjaTdwDgKG11uqbUJYjxQWZVKiiefi4HvFd7haeUtGFRBaxgKNTr3vR78pkMzgJaAZ"
+    status = 301
+    force = true
+
+[[redirects]]
     from = "/:page"
     to = "/page/:page"
     status = 302
