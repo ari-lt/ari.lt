@@ -4,3 +4,4 @@ node_modules/
 /api/apis.json
 /api/pages.json
 /api_hash
+!.minexclude
