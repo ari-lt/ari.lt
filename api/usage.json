@@ -174,5 +174,13 @@
             "blog.ari.lt": 349.3,
             "files.ari.lt": 228.6
         }
+    },
+    "2024-06-01": {
+        "total": 1014,
+        "top": {
+            "ari.lt": 687.1,
+            "blog.ari.lt": 172.1,
+            "files.ari.lt": 115.9
+        }
     }
 }
