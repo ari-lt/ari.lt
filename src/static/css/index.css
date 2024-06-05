@@ -1,0 +1,101 @@
+*,
+*::before,
+*::after {
+    font-family: Hack, hack, sans-serif;
+}
+
+.split > * {
+    padding: 2em;
+}
+
+.split  {
+    display: grid;
+    grid-gap: 0.5em;
+    grid-template-columns: 3fr 1fr;
+}
+
+.split > :first-child {
+    position: relative;
+    overflow: hidden;
+}
+
+.split > :first-child::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    bottom: 50%;
+    border-right: 2px solid var(--red);
+    animation: grow 0.5s forwards;
+    pointer-events: none;
+}
+
+@keyframes grow {
+    from {
+        top: 50%;
+        bottom: 50%;
+    }
+
+    to {
+        top: 0;
+        bottom: 0;
+    }
+}
+
+canvas#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        -webkit-animation-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+
+        -webkit-animation-iteration-count: 1 !important;
+        animation-iteration-count: 1 !important;
+
+        -webkit-transition-duration: 0.01ms !important;
+        -o-transition-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .split {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .split > :first-child {
+        order: 2;
+    }
+
+    .split > :last-child {
+        order: 1;
+    }
+
+    .split > :last-child > *:not(div),
+    .split > :first-child::before {
+        display: none;
+    }
+
+    .split {
+        grid-template-columns: 1fr;
+        border-bottom: 2px dashed gray;
+    }
+
+    .split > :last-child {
+        word-break: break-all;
+    }
+}

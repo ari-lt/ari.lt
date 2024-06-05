@@ -1,0 +1,255 @@
+{% extends "base.j2" %}
+
+{% block title %}Index{% endblock %}
+
+{% block description %}Ari-web: A personal website of a Lithuanian open source developer Ari Archer (Arija A.) who provides different free, private, and open source services for others.{% endblock %}
+
+{% block keywords %}ari::web, services, foss services, homepage, portfolio{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for("static", filename="fonts/Hack.css") }}" type="text/css" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="{{ url_for("static", filename="css/index.css") }}" type="text/css" referrerpolicy="no-referrer" />
+
+<script type="text/javascript">
+    <!--//--><![CDATA[//><!--
+    /**
+     * @licstart The following is the entire license notice for the JavaScript
+     * code in this page.
+     *
+     * Copyright (C) 2024 Ari Archer
+     *
+     * The JavaScript code in this page is free software: you can redistribute
+     * it and/or modify it under the terms of the GNU Affero General Public License
+     * (AGPL) as published by the Free Software Foundation, either version 3
+     * of the License, or (at your option) any later version.  The code is
+     * distributed WITHOUT ANY WARRANTY; without even the implied warranty of
+     * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the AGPL
+     * for more details.
+     *
+     * As additional permission under AGPL version 3 section 7, you may
+     * distribute non-source (e.g., minimized or compacted) forms of that code
+     * without the copy of the AGPL normally required by section 4, provided
+     * you include this license notice and a URL through which recipients can
+     * access the Corresponding Source.
+     *
+     * @licend The above is the entire license notice for the JavaScript code
+     * in this page.
+     */
+
+    //--><!]]>
+</script>
+<script src="{{ url_for("static", filename="js/index.js") }}" referrerpolicy="no-referrer"></script>
+{% endblock %}
+
+{% block body %}
+<canvas id="particles"></canvas>
+{% endblock %}
+
+{% block header %}
+<h1>Ari.lt: Free and open source world of Ari Archer.</h1>
+{% endblock %}
+
+{% block main %}
+<div class="split">
+    <div>
+        <p>Welcome to my website, visitor {{ visitor }}!</p>
+
+        <p>
+            My name is <b>Ari Archer</b> also known as <b>Arija A.</b>, but most commonly referred to as
+            <b>Ari</b>. I am a {{ ari_age }} year old, neurodivergent, transgender, open source developer from Lithuania who does
+            fun stuff in primarily <a target="_blank" href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> (~{{ python_exp }} years)
+            and <a target="_blank" href="https://en.wikipedia.org/wiki/C_(programming_language)">C (89, 99)</a> (~{{ c_exp }} years).
+        </p>
+
+        <p>
+            I've picked up programming at first in Python, writing various programs on my phone, and later on discovering a communty
+            where I could share my code. At the time I didn't have access to a computer, so I used to play around with
+            basic <a target="_blank" href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> on my local library computers.
+            At around 2019 I got access to a personal computer, which is where my main <a target="_blank" href="https://en.wikipedia.org/wiki/Free_and_open-source_software">FOSS</a> journey started -
+            exploring more technologies and understanding them more in-depth, not being limited by a locked down phone.
+        </p>
+
+        <p>
+            I hated the limiting feeling of being on <a target="_blank" href="https://en.wikipedia.org/wiki/Microsoft_Windows">Microsoft Windows</a> 10
+            very limiting, so soon after getting a personal computer I installed a free and open source <a target="_blank" href="https://en.wikipedia.org/wiki/Linux">Linux</a>
+            kernel distribution - and I've never went back to Windows ever since then. Democracy, freedom, shareability
+            and customization ("hackability") are huge values for me.
+        </p>
+
+        <p>
+            Technology is a big part of my life, and I am way past the stage where I find <i>just</i> technology facinating -
+            I find various problems and their optimal solutions very interesting and I like to come up with my own - even if
+            it's "<a target="_blank" href="https://en.wikipedia.org/wiki/Reinventing_the_wheel">reinventing the wheel</a>" or "impractical" -
+            I like to dig deep into it and understand how it works at its core, rather than relying on high-level features of an
+            abstraction stack. I was always a person like this, not specifically in technology - I was always the nerdy science kid -
+            but everywhere.
+        </p>
+
+        <p>
+            Even though I'd consider technology, problem solving, and computer programming a big part of my life, I
+            also enjoy a couple of more things. Such as:
+        </p>
+
+        <ul>
+            <li>Exploring various social issues (wars, injustice, freedom of people, abuse, discrimination, environmental problems, ...)</li>
+            <li>Cooking - I really enjoy putting together a healthy, vegan dish, which's recipe I can share with others.</li>
+            <li>And also <a href="https://blog.ari.lt/">blogging</a>, as archiving things and <i>thoughts</i> has been a huge part of my life since forever.</li>
+        </ul>
+    </div>
+
+    <div>
+        <div align="center">
+            <img src="{{ url_for("static", filename="svg/ari.svg") }}" alt="A illustration (sketch) of Ari Archer with medium length red-black split dyed hair" width="196px" />
+        </div>
+
+        <ul>
+            <li>Name: Arija A. (Ari Archer)</li>
+            <li>Pronouns: She/Her</li>
+            <li>Age: {{ ari_age }} years old.</li>
+            <li>Country: Lithuania (Lietuva).</li>
+            <li>Languages: Lithuanian (native), English (B2), German (basic).</li>
+            <li>Programming Experience: {{ programming_exp }} years ({{python_exp }}y in Python, {{ c_exp }}y in C).</li>
+            <li>Skills: Backend web development in Python using Flask, basic front-end development (HTML, JS, CSS, SCSS) and SEO (search engine optimization), software and library development in C and Python, Linux and intermediate Linux systems administration, technical documentation and specifications, application of different mathematical methods.</li>
+            <li>
+                Contacts
+
+                <ul>
+                    <li>GitHub: <a target="_blank" href="https://github.com/TruncatedDinoSour">TruncatedDinoSour</a></li>
+                    <li>GitHub organization: <a target="_blank" href="https://github.com/ari-lt">ari-lt</a> (<a href="mailto:org@ari.lt">org@ari.lt</a>)</li>
+                    <li>Matrix: <a target="_blank" href="https://matrix.to/#/@ari:ari.lt">@ari:ari.lt</a></li>
+                    <li>Fediverse: <a target="_blank" href="https://ak.ari.lt/ari">@ari@ak.ari.lt</a></li>
+                    <li>E-Mail: <a target="_blank" href="mailto:ari@ari.lt">ari@ari.lt</a> (GPG: <a target="_blank" href="https://keys.openpgp.org/vks/v1/by-fingerprint/4FAD63E936B305906A6C4894A50D5B4B599AF8A2">4FAD63E936B305906A6C4894A50D5B4B599AF8A2</a>)</li>
+                </ul>
+            </li>
+        </ul>
+        <blockquote>
+            "Talk is cheap. Show me the code."
+        </blockquote>
+        <pre>
+        - Linus Torvalds, creator of Linux
+        </pre>
+    </div>
+</div>
+
+<p>
+    That was a short introduction of who I am and what I do.
+</p>
+
+<h2 id="staff"><a href="#staff">#</a> Staff</h2>
+
+<p>
+    This table lists active staff that works on different parts of ari.lt, that doesn't include me.
+    Feel free to visit their websites and show appriciation :).
+</p>
+
+<div align="center">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Website</th>
+        </tr>
+        <tr>
+            <td>LDA</td>
+            <td>Moderates Matrix.</td>
+            <td><a href="https://freetards.xyz/" target="_blank">freetards.xyz</a></td>
+        </tr>
+        <tr>
+            <td>Jjj (Joseph)</td>
+            <td>Moderates Matrix, helps with Email things.</td>
+            <td><a href="https://pain.agency/" target="_blank">pain.agency</a></td>
+        </tr>
+        <tr>
+            <td>Zayd</td>
+            <td>Administrates Akkoma.</td>
+            <td><a href="https://wanderer.envs.net/" target="_blank">wanderer.envs.net</a></td>
+        </tr>
+        <tr>
+            <td>Sulian/Morguldir</td>
+            <td>Moderates Matrix.</td>
+            <td><a href="https://sulian.eu/" target="_blank">sulian.eu</a></td>
+        </tr>
+    </table>
+</div>
+
+<h2 id="services"><a href="#services">#</a> Services</h2>
+
+<p>
+    This table lists all self-hosted software (semi-)open for the public that people are welcome to use.
+</p>
+
+<div align="center">
+    <table>
+        <tr>
+            <th>Service</th>
+            <th>Description</th>
+            <th>Link</th>
+        </tr>
+        <tr>
+            <td>Matrix homeserver</td>
+            <td>Semi-open registration, follow the process described <a href="{{ url_for('views.page', p='matrix') }}" target="_blank">here</a>.</td>
+            <td><a href="https://matrix.ari.lt/" target="_blank">matrix.ari.lt</a></td>
+        </tr>
+        <tr>
+            <td>Forgejo git forge instance</td>
+            <td>Open registration.</td>
+            <td><a href="https://git.ari.lt/" target="_blank">git.ari.lt</a></td>
+        </tr>
+        <tr>
+            <td>SearXNG instance</td>
+            <td>SearXNG meta-search-engine instance.</td>
+            <td><a href="https://searx.ari.lt/" target="_blank">searx.ari.lt</a></td>
+        </tr>
+        <tr>
+            <td>CryptPad instance</td>
+            <td>Open registration, CryptPad: private office suite software.</td>
+            <td><a href="https://pad.ari.lt/" target="_blank">pad.ari.lt</a></td>
+        </tr>
+        <tr>
+            <td>Email server hosting <a href="https://mailcow.email/" target="_blank">Mailcow</a></td>
+            <td>Contact <a href="mailto:ari@ari.lt" target="_blank">ari@ari.lt</a> for custom domains (aggressive policy)</td>
+            <td><a href="https://mail.ari.lt/" target="_blank">mail.ari.lt</a> (<a href="https://mail.ari.lt/signup" target="_blank">register here</a>)</td>
+        </tr>
+        <tr>
+            <td>Roundcube webmail</td>
+            <td>Only for ari.lt users</td>
+            <td><a href="https://rc.ari.lt/" target="_blank">rc.ari.lt</a></td>
+        </tr>
+        <tr>
+            <td>Akkoma fediverse instance</td>
+            <td>Open registration.</td>
+            <td><a href="https://ak.ari.lt/" target="_blank">ak.ari.lt</a></td>
+        </tr>
+        <tr>
+            <td>Vikunja instance</td>
+            <td>Free and open source todo app. Open registration.</td>
+            <td><a href="https://vi.ari.lt/" target="_blank">vi.ari.lt</a></td>
+        </tr>
+        <tr>
+            <td>SchildiChat &amp; Cinny Matrix web clients</td>
+            <td>Web clients for Matrix.</td>
+            <td><a href="https://schildi.ari.lt/" target="_blank">schildi.ari.lt</a> &amp; <a href="https://cinny.ari.lt/" target="_blank">cinny.ari.lt</a></td>
+        </tr>
+        <tr>
+            <td>PrivateBin instance</td>
+            <td>Private public encrypted pastebin.</td>
+            <td><a href="https://pb.ari.lt/" target="_blank">pb.ari.lt</a></td>
+        </tr>
+        <tr>
+            <td>db.cubiq.dev</td>
+            <td>Private database storage for <a href="https://github.com/TheCubiq/" target="_blank">Github: TheCubiq</a></td>
+            <td><a href="https://db.cubiq.dev/" target="_blank">db.cubiq.dev</a></td>
+        </tr>
+        <tr>
+            <td>t1nklas.lt's email</td>
+            <td>Custom domain on ari-web email</td>
+            <td><a href="https://t1nklas.lt/" target="_blank">t1nklas.lt</a></td>
+        </tr>
+        <tr>
+            <td>git.kappach.at</td>
+            <td>Git forge instance of KappaChat - An extensible Matrix client written in C.</td>
+            <td><a href="https://git.kappach.at/" target="_blank">git.kappach.at</a></td>
+        </tr>
+    </table>
+</div>
+{% endblock %}

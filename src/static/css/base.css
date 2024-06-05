@@ -1,0 +1,131 @@
+:root {
+    color-scheme: dark;
+
+    --red: #ff5147;
+    --white: #fbfbfb;
+}
+
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+    word-wrap: break-word;
+
+    scroll-behavior: smooth;
+
+    color: var(--white);
+}
+
+code,
+code *,
+pre,
+pre * {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+}
+
+html {
+    height: 100%;
+    min-height: 100%;
+    background-color: #090909;
+}
+
+body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+
+    flex-direction: column;
+    height: auto;
+    min-height: 100%;
+
+    margin: auto;
+    padding: 0;
+    max-width: 1400px;
+
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+code {
+    white-space: pre-wrap !important;
+}
+
+h1 {
+    text-align: center;
+}
+
+article {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+
+    padding: 2rem;
+}
+
+main {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 1em;
+}
+
+footer, footer * {
+    text-align: center;
+    opacity: 0.8;
+}
+
+li {
+    margin: 0.5em 0;
+}
+
+p, table {
+    text-align: justify;
+}
+
+table {
+    border-spacing: 0.2em;
+}
+
+a {
+    color: var(--red);
+    font-style: italic;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        -webkit-animation-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+
+        -webkit-animation-iteration-count: 1 !important;
+        animation-iteration-count: 1 !important;
+
+        -webkit-transition-duration: 0.01ms !important;
+        -o-transition-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+    }
+}
