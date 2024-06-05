@@ -4,7 +4,7 @@
 
 {% block description %}Ari-web: A personal website of a Lithuanian open source developer Ari Archer (Arija A.) who provides different free, private, and open source services for others.{% endblock %}
 
-{% block keywords %}ari::web, services, foss services, homepage, portfolio{% endblock %}
+{% block keywords %}ari::web, services, foss services, homepage, portfolio, resume{% endblock %}
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for("static", filename="fonts/Hack.css") }}" type="text/css" referrerpolicy="no-referrer" />
@@ -47,22 +47,44 @@
 
 {% block header %}
 <h1>Ari.lt: Free and open source world of Ari Archer.</h1>
+
+<nav class="mob">
+    <div align="center">
+    <details>
+        <summary>Navigation</summary>
+
+        <ul>
+            <li>Links: <a href="#links">#links</a></li>
+            <li>Staff list: <a href="#staff">#staff</a></li>
+            <li>Self-hosted services list: <a href="#services">#services</a></li>
+            <li>Guestbook: <a href="#gb">#gb</a></li>
+        </ul>
+    </details>
+    </div>
+</nav>
 {% endblock %}
 
 {% block main %}
 <div class="split">
     <div>
-        <p>Welcome to my website, visitor {{ visitor }}!</p>
+        <p>Welcome to my website, visitor <b>{{ visitor }}</b>!</p>
+
+        <blockquote>
+            Before I start explaining who I am, if you're here on this page because of one of the users
+            using ari-web services and you want to report abuse, please contact me using one of the
+            contacts listed on this page (such as the <a href="mailto:ari@ari.lt" target="_blank">ari@ari.lt</a> email)
+            or see <a href="#staff">the list of staff</a>. You may also leave a comment on <a href="#gb">the guestbook</a>.
+        </blockquote>
 
         <p>
             My name is <b>Ari Archer</b> also known as <b>Arija A.</b>, but most commonly referred to as
-            <b>Ari</b>. I am a {{ ari_age }} year old, neurodivergent, transgender, open source developer from Lithuania who does
-            fun stuff in primarily <a target="_blank" href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> (~{{ python_exp }} years)
-            and <a target="_blank" href="https://en.wikipedia.org/wiki/C_(programming_language)">C (89, 99)</a> (~{{ c_exp }} years).
+            <b>Ari</b>. I am a <b>{{ ari_age }} year old</b>, neurodivergent, transgender, open source developer from Lithuania who does
+            fun stuff in primarily <a target="_blank" href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> (~<b>{{ python_exp }}</b> years)
+            and <a target="_blank" href="https://en.wikipedia.org/wiki/C_(programming_language)">C (89, 99)</a> (~<b>{{ c_exp }}</b> years).
         </p>
 
         <p>
-            I've picked up programming at first in Python, writing various programs on my phone, and later on discovering a communty
+            I've picked up programming at first in Python, writing various programs on my phone, and later on discovering a community
             where I could share my code. At the time I didn't have access to a computer, so I used to play around with
             basic <a target="_blank" href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> on my local library computers.
             At around 2019 I got access to a personal computer, which is where my main <a target="_blank" href="https://en.wikipedia.org/wiki/Free_and_open-source_software">FOSS</a> journey started -
@@ -72,12 +94,12 @@
         <p>
             I hated the limiting feeling of being on <a target="_blank" href="https://en.wikipedia.org/wiki/Microsoft_Windows">Microsoft Windows</a> 10
             very limiting, so soon after getting a personal computer I installed a free and open source <a target="_blank" href="https://en.wikipedia.org/wiki/Linux">Linux</a>
-            kernel distribution - and I've never went back to Windows ever since then. Democracy, freedom, shareability
-            and customization ("hackability") are huge values for me.
+            kernel distribution - and I've never went back to Windows ever since then. <i>Democracy, freedom, shareability</i>
+            and <i>customization</i> ("hackability") are huge values for me.
         </p>
 
         <p>
-            Technology is a big part of my life, and I am way past the stage where I find <i>just</i> technology facinating -
+            Technology is a big part of my life, and I am way past the stage where I find <i>just</i> technology fascinating -
             I find various problems and their optimal solutions very interesting and I like to come up with my own - even if
             it's "<a target="_blank" href="https://en.wikipedia.org/wiki/Reinventing_the_wheel">reinventing the wheel</a>" or "impractical" -
             I like to dig deep into it and understand how it works at its core, rather than relying on high-level features of an
@@ -95,6 +117,18 @@
             <li>Cooking - I really enjoy putting together a healthy, vegan dish, which's recipe I can share with others.</li>
             <li>And also <a href="https://blog.ari.lt/">blogging</a>, as archiving things and <i>thoughts</i> has been a huge part of my life since forever.</li>
         </ul>
+
+        <p>
+            But generally, I am pretty much open to try <i>everything at least once</i> if I have the time and energy to do so.
+        </p>
+
+        <p>
+            People often describe my personality as kind, accepting, open-minded, and nonjudgmental due to the way I interact
+            with the world and people - I am always accepting of people no matter what they've gone through or are
+            going through. They also see my logical side and describe me as <i>intelligent, analytical</i>, and <i>creative</i>
+            because of how I tend to approach various logical problems. Though, this side of me can sometimes be
+            overpowered by my emotional side if I lose control of my emotions.
+        </p>
     </div>
 
     <div>
@@ -106,10 +140,13 @@
             <li>Name: Arija A. (Ari Archer)</li>
             <li>Pronouns: She/Her</li>
             <li>Age: {{ ari_age }} years old.</li>
+            <li>Education: Primary school, middle school, high school (ongoing).</li>
             <li>Country: Lithuania (Lietuva).</li>
-            <li>Languages: Lithuanian (native), English (B2), German (basic).</li>
+            <li>Languages: Lithuanian (native, {{ ari_age }}y), English (B2, {{ ari_age - 8 }}y), German (basic, {{ ari_age - 12 }}y).</li>
             <li>Programming Experience: {{ programming_exp }} years ({{python_exp }}y in Python, {{ c_exp }}y in C).</li>
             <li>Skills: Backend web development in Python using Flask, basic front-end development (HTML, JS, CSS, SCSS) and SEO (search engine optimization), software and library development in C and Python, Linux and intermediate Linux systems administration, technical documentation and specifications, application of different mathematical methods.</li>
+            <li>Learning: Better communication skills, self-improvement, cryptography (post-quantum cryptography), working on mental health and emotional grounding.</li>
+            <li>Personality: Recognised as kind, open-minded, intelligent, analytical, non-Judgmental, chill, anxious, generous, introverted, independent, caring, helpful, and supportive by people in my life.</li>
             <li>
                 Contacts
 
@@ -125,14 +162,65 @@
         <blockquote>
             "Talk is cheap. Show me the code."
         </blockquote>
-        <pre>
-        - Linus Torvalds, creator of Linux
-        </pre>
+        <pre>       - Linus Torvalds, creator of Linux</pre>
     </div>
 </div>
 
 <p>
-    That was a short introduction of who I am and what I do.
+    This is a brief description of me as a person, I probably cannot fit all of it in a single page. I do hope that
+    this is a good introduction to what I do, what skills I posses.
+</p>
+
+<p>
+    Current status:
+</p>
+
+<div align="center">
+<blockquote><pre>This is a status
+Hello world</pre>
+Last updated: 2024-06-06 00:17:11 UTC</blockquote>
+</div>
+
+<h2 id="links"><a href="#links">#</a> Links</h2>
+
+<p>
+    Many of my links, social media, etc. can be found at:
+</p>
+
+<div class="mob">
+    <h3>Contacts</h3>
+    <ul>
+        <li>GitHub: <a target="_blank" href="https://github.com/TruncatedDinoSour">TruncatedDinoSour</a></li>
+        <li>GitHub organization: <a target="_blank" href="https://github.com/ari-lt">ari-lt</a> (<a href="mailto:org@ari.lt">org@ari.lt</a>)</li>
+        <li>Matrix: <a target="_blank" href="https://matrix.to/#/@ari:ari.lt">@ari:ari.lt</a></li>
+        <li>Fediverse: <a target="_blank" href="https://ak.ari.lt/ari">@ari@ak.ari.lt</a></li>
+        <li>E-Mail: <a target="_blank" href="mailto:ari@ari.lt">ari@ari.lt</a> (GPG: <a target="_blank" href="https://keys.openpgp.org/vks/v1/by-fingerprint/4FAD63E936B305906A6C4894A50D5B4B599AF8A2">4FAD63E936B305906A6C4894A50D5B4B599AF8A2</a>)</li>
+    </ul>
+</div>
+
+<h3>Activity</h3>
+
+<ul>
+    <li>Source code of the website: <a target="_blank" href="{{ url_for("views.git") }}">{{ url_for("views.git") }}</a></li>
+    <li>Blog: <a target="_blank" href="https://blog.ari.lt/">blog.ari.lt</a></li>
+    <li>Matrix room: <a target="_blank" href="https://matrix.to/#/#root:ari.lt">#root:ari.lt</a></li>
+</ul>
+
+<h3>Projects</h3>
+
+<ul>
+    <li>Ari.lt - an open source website by ari archer: <a target="_blank" href="https://github.com/ari-lt">ari-lt GitHub organization</a></a>
+    <li>Baz - a fast, easy, simple and lightweight plugin manager for GNU bash: <a target="_blank" href="https://github.com/TruncatedDinoSour/baz">TruncatedDinoSour/baz</a></a>
+    <li>Kos - A simple SUID tool written in C++: <a target="_blank" href="https://github.com/TruncatedDinoSour/kos">TruncatedDinoSour/kos</a></a>
+    <li>Armour - password securing, management and generation library with a custom database format: <a target="_blank" href="https://github.com/TruncatedDinoSour/armour">TruncatedDinoSour/armour</a></a>
+    <li>Fa - stack based, reverse polish notation low-level programming language that transpiles down to assembly: <a target="_blank" href="https://github.com/TruncatedDinoSour/fa">TruncatedDinoSour/fa</a></a>
+</ul>
+
+<p>
+    Note that these are not the only projects I've ever worked on. These are a few
+    highlights that I find neat personally for differnt reasons. There don't showcase all
+    of my abilities, although these are practical examples of things I work on
+    sometimes.
 </p>
 
 <h2 id="staff"><a href="#staff">#</a> Staff</h2>
@@ -142,7 +230,8 @@
     Feel free to visit their websites and show appriciation :).
 </p>
 
-<div align="center">
+<div class="split esplit">
+    <div align="center">
     <table>
         <tr>
             <th>Name</th>
@@ -170,6 +259,16 @@
             <td><a href="https://sulian.eu/" target="_blank">sulian.eu</a></td>
         </tr>
     </table>
+    </div>
+
+    <div>
+    <p>
+        Ari.lt is mainly a personal site, although it is not limited to being <i>just</i> a personal website.
+        I, together with a couple of <a href="#staff">staff members</a>, host some <a href="#services">services</a> on
+        a shared <a href="https://s.ari.lt/">server</a>. Some of these services are a bit locked down or have aggressive policies to prevent spam
+        as our team is small.
+    </p>
+    </div>
 </div>
 
 <h2 id="services"><a href="#services">#</a> Services</h2>
@@ -236,7 +335,7 @@
             <td><a href="https://pb.ari.lt/" target="_blank">pb.ari.lt</a></td>
         </tr>
         <tr>
-            <td>db.cubiq.dev</td>
+            <td>Private PocketBase instance</td>
             <td>Private database storage for <a href="https://github.com/TheCubiq/" target="_blank">Github: TheCubiq</a></td>
             <td><a href="https://db.cubiq.dev/" target="_blank">db.cubiq.dev</a></td>
         </tr>
@@ -246,10 +345,74 @@
             <td><a href="https://t1nklas.lt/" target="_blank">t1nklas.lt</a></td>
         </tr>
         <tr>
-            <td>git.kappach.at</td>
+            <td>Forgejo instance for <a href="https://kappach.at/" target="_blank">kappach.at</a></td>
             <td>Git forge instance of KappaChat - An extensible Matrix client written in C.</td>
             <td><a href="https://git.kappach.at/" target="_blank">git.kappach.at</a></td>
         </tr>
     </table>
 </div>
+
+<h2 id="gb"><a href="#gb">#</a> Guestbook</h2>
+
+<p>
+    If you want to interact with the community feel free to leave your comments here! You will require an
+    email address to prevent spam and impersonation, it will be listed, although not as text as it will
+    be encrypted server-side using <a target="_blank" href="https://en.wikipedia.org/wiki/RC4">RC4</a> (a fast, but insecure cipher)
+    with a 32-byte (256 bit) key. Check your mailbox when you comment as you will need to verify the comment.
+</p>
+
+<form method="post">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input required type="text" id="name" name="name" placeholder="Cool Person" />
+    </div>
+
+    <div class="form-group">
+        <label for="website">Website (optional):</label>
+        <input type="url" id="website" name="website" placeholder="https://example.com/" />
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input required type="email" id="email" name="email" placeholder="me@example.com" />
+    </div>
+
+    <div class="form-group">
+        <label for="comment">Comment:</label>
+        <textarea required type="text" id="comment" name="comment" placeholder="Hello!"></textarea>
+    </div>
+
+    <div class="captcha">
+        <img loading="lazy" width="240px" height="90" src="{{ url_for("views.captcha") }}?new" onclick="this.src=this.src+Math.floor(1000*Math.random())" alt="An image CAPTCHA" />
+        <i>Click the image above to reload and get a new CAPTCHA</i>
+    </div>
+
+    <div class="form-group">
+        <label for="captcha">CAPTCHA:</label>
+        <input required type="text" id="comment" name="comment" placeholder="Enter the CAPTCHA code above." />
+    </div>
+
+    <button type="submit">Comment</button>
+</form>
+
+<hr />
+
+<div align="center">
+    <i>Report any impersonation to the owner of this website: Ari Archer.</i>
+</div>
+
+<div id="comments">
+    <div id="guestbook-1">
+        <p><a href="#guestbook-1">#1:</a> Cool Person (<a target="_blank" href="#!">https://example.com/</a>) &lt;<i><button onclick="rc4('data','key')">show email</button></i>&gt; at 2024-06-05 11:11:11 UTC says...</p>
+        <pre>Cool website, but you should kill yourself!
+Meow!</pre>
+    </div>
+
+    <div id="guestbook-1">
+        <p><a href="#guestbook-1">#1:</a> Cool Person (<a target="_blank" href="#!">https://example.com/</a>) &lt;<i><button onclick="rc4('data','key')">show email</button></i>&gt; at 2024-06-05 11:11:11 UTC says...</p>
+        <pre>Cool website, but you should kill yourself!
+Meow!</pre>
+    </div>
+</div>
+
 {% endblock %}

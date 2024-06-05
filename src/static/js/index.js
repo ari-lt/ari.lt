@@ -33,8 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
     canvas.height = window.innerHeight;
 
     let particles = [];
+    const particle_density = 1.5e-5;
+    let num_particles;
 
-    const num_particles = 512;
     const particle_size = 2;
     const avoidance_radius = 48;
 
@@ -87,6 +88,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     class Particle {
         constructor() {
+            this.reset();
+        }
+
+        reset() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
             this.velocity = {
@@ -96,19 +101,21 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         update(particles) {
-            if (this.x < 0 || this.x > canvas.width) {
+            if (this.x <= 0 || this.x >= canvas.width) {
                 this.velocity.x *= -1;
+                this.x = Math.max(Math.min(this.x, canvas.width), 0);
             }
 
-            if (this.y < 0 || this.y > canvas.height) {
+            if (this.y <= 0 || this.y >= canvas.height) {
                 this.velocity.y *= -1;
+                this.y = Math.max(Math.min(this.y, canvas.height), 0);
             }
 
             let dx = mouse.x - this.x;
             let dy = mouse.y - this.y;
             let distance = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance < avoidance_radius) {
+            if (distance < avoidance_radius && distance > 0) {
                 this.velocity.x += (dx / distance) * 0.5;
                 this.velocity.y += (dy / distance) * 0.5;
             }
@@ -149,13 +156,17 @@ document.addEventListener("DOMContentLoaded", function () {
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, particle_size, 0, Math.PI * 2);
-            ctx.fillStyle = "rgba(255, 81, 71, 0.2)";
+            ctx.fillStyle = "rgba(255, 81, 71, 0.5)";
             ctx.fill();
         }
     }
 
     function init() {
         particles = [];
+        num_particles = Math.floor(
+            particle_density * canvas.width * canvas.height,
+        );
+        num_particles = Math.min(num_particles, 1024);
         for (let i = 0; i < num_particles; i++) {
             particles.push(new Particle());
         }

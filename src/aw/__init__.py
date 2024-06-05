@@ -3,6 +3,7 @@
 """ari.lt"""
 
 import datetime
+import hashlib
 import os
 import sys
 from typing import Any
@@ -23,6 +24,8 @@ def create_app(name: str) -> flask.Flask:
     app.config["PREFERRED_URL_SCHEME"] = "http" if app.debug else "https"
     app.config["DOMAIN"] = "ari.lt"
 
+    app.config["SECRET_KEY"] = os.urandom(4096)
+
     app.config["SESSION_COOKIE_SAMESITE"] = "strict"
     app.config["SESSION_COOKIE_SECURE"] = True
     app.config["SESSION_COOKIE_HTTPONLY"] = True
@@ -31,11 +34,34 @@ def create_app(name: str) -> flask.Flask:
     app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {"pool_pre_ping": True}
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
+    app.config["CAPTCHA_PEPPER_FILE"] = "captcha.key"
+    app.config["CAPTCHA_EXPIRY"] = 60 * 10  # 10 minutes
+    app.config["CAPTCHA_CHARSET"] = "abdefghmnqrtyABDEFGHLMNRTY2345689#@%?!"
+    app.config["CAPTCHA_RANGE"] = (4, 6)
+
     app.config["USE_SESSION_FOR_NEXT"] = True
+
+    from .models import Admin, db
+
+    with app.app_context():
+        db.init_app(app)
+        db.create_all()
+
+        # if db.session.query(Admin).count() < 1:
+        #     print("Creating an admin account...")
+
+        #     full_name: str = input("Full name: ")
+        #     email: str = input("Email: ")
+        #     salt: bytes = os.urandom(64)
+        #     pwhash: bytes = hashlib.sha3_512(salt + input("Password: ")).digest()
 
     from .views import views
 
     app.register_blueprint(views, url_prefix="/")
+
+    from .c import c
+
+    c.init_app(app)
 
     @app.context_processor  # type: ignore
     def _() -> Any:

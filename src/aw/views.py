@@ -8,6 +8,7 @@ import flask
 from werkzeug.wrappers import Response
 
 from .routing import Bp
+from .c import c
 
 views: Bp = Bp("views", __name__)
 
@@ -55,6 +56,14 @@ def license() -> flask.Response:
         with open("LICENSE", "r") as fp:
             return flask.Response(fp.read(), mimetype="text/plain")
 
+@views.post("/")
+def comment() -> flask.Response:
+    """publish a comment"""
+    return flask.Response(
+        c.new().rawpng(),
+        mimetype="image/png"
+    )
+
 
 @views.get("/git", defaults={"_": ""})
 @views.get("/git/", defaults={"_": ""})
@@ -75,5 +84,35 @@ def favicon() -> Response:
             "static",
             filename="favicons/ari-web-lgbt.ico",
             mimetype="image/vnd.microsoft.icon",
+        )
+    )
+
+@views.get("/captcha.png")
+def captcha() -> flask.Response:
+    """CAPTCHA"""
+    return flask.Response(
+        c.new().rawpng(),
+        mimetype="image/png"
+    )
+
+
+@views.get("/badge.png")
+def badge() -> Response:
+    """Website badge"""
+    return flask.redirect(
+        flask.url_for(
+            "static",
+            filename="badges/badge.png",
+        )
+    )
+
+
+@views.get("/badge-yellow.png")
+def badge_yellow() -> Response:
+    """Website badge (yellow)"""
+    return flask.redirect(
+        flask.url_for(
+            "static",
+            filename="badges/badge-yellow.png",
         )
     )

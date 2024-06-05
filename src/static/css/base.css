@@ -48,7 +48,7 @@ body {
 
     margin: auto;
     padding: 0;
-    max-width: 1400px;
+    max-width: 1600px;
 
     text-rendering: optimizeSpeed;
     line-height: 1.5;
@@ -94,7 +94,7 @@ li {
     margin: 0.5em 0;
 }
 
-p, table {
+p, table, table * {
     text-align: justify;
 }
 
@@ -112,6 +112,10 @@ a:hover {
     text-decoration: underline;
 }
 
+.mob {
+    display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -127,5 +131,11 @@ a:hover {
         transition-duration: 0.01ms !important;
 
         scroll-behavior: auto !important;
+    }
+}
+
+@media only screen and (max-width: 1250px) {
+    .mob {
+        display: initial;
     }
 }
