@@ -36,7 +36,19 @@
         {% block body %}{% endblock %}
         <article>
         <header>{% block header %}{% endblock %}</header>
-        <main>{% block main %}{% endblock %}</main>
+        <main>
+            {% with messages = get_flashed_messages(with_categories=True) %}
+                {% if messages %}
+                <details open>
+                <summary>messages from the server</summary>
+                {% for category, message in messages %}
+                    <div data-category="{{ category }}">{{ message | escape }}</div>
+                {% endfor %}
+                </details>
+                {% endif %}
+            {% endwith %}
+            {% block main %}{% endblock %}
+        </main>
         <footer>
             <i>The <a target="_blank" href="{{ url_for('views.git') }}">source code</a> and all content, except the Nerd Hack font (see <a target="_blank" href="{{ url_for("static", filename="fonts/LICENSE") }}">Nerd Hack font license</a>), are licensed under the <a target="_blank" href="https://www.gnu.org/licenses/agpl-3.0.en.html">AGPL-3.0-or-later</a> by Ari Archer &lt;<a target="_blank" href="mailto:ari@ari.lt">ari@ari.lt</a>&gt; as a part of the <a href="{{ url_for("views.badge") }}" target="_blank">ari-web</a> project. Copyright 2019-{{ current_year }}.</i>
         </footer>

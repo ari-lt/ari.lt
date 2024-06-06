@@ -68,6 +68,17 @@ class Counter(db.Model):
         assert count >= 0 and count <= const.HUGEINT_MAX, "count out of range"
         self.count: int = count
 
+    def inc(self) -> "Counter":
+        """increment and return self"""
+        self.count += 1
+        db.session.commit()
+        return self
+
+    @staticmethod
+    def first() -> "Counter":
+        """get counter"""
+        return db.session.query(Counter).first()  # type: ignore
+
 
 class Comment(db.Model):
     """Comment"""
@@ -102,7 +113,7 @@ class Comment(db.Model):
         self.website: t.Optional[str] = website
 
         self.key: bytes = rand.randbytes(32)
-        self.email_ct: bytes = crc4.rc4(self.email.encode(), self.key)  # type: ignore
+        self.email_ct: bytes = crc4.rc4(email.encode(), self.key)  # type: ignore
 
         self.comment: str = comment
         self.confirmed: bool = False

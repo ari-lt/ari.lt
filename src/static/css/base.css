@@ -94,7 +94,7 @@ li {
     margin: 0.5em 0;
 }
 
-p, table, table * {
+table, table * {
     text-align: justify;
 }
 

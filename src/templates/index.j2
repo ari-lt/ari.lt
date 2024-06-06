@@ -38,7 +38,8 @@
 
     //--><!]]>
 </script>
-<script src="{{ url_for("static", filename="js/index.js") }}" referrerpolicy="no-referrer"></script>
+<script src="{{ url_for("static", filename="js/particles.js") }}" referrerpolicy="no-referrer"></script>
+<script src="{{ url_for("static", filename="js/rc4.js") }}" referrerpolicy="no-referrer"></script>
 {% endblock %}
 
 {% block body %}
@@ -54,6 +55,7 @@
         <summary>Navigation</summary>
 
         <ul>
+            <li>Pages and redirects: <a href="#pages">#pages</a></li>
             <li>Links: <a href="#links">#links</a></li>
             <li>Staff list: <a href="#staff">#staff</a></li>
             <li>Self-hosted services list: <a href="#services">#services</a></li>
@@ -72,7 +74,7 @@
         <blockquote>
             Before I start explaining who I am, if you're here on this page because of one of the users
             using ari-web services and you want to report abuse, please contact me using one of the
-            contacts listed on this page (such as the <a href="mailto:ari@ari.lt" target="_blank">ari@ari.lt</a> email)
+            contacts listed on this page (such as the <a href="mailto:ari@ari.lt">ari@ari.lt</a> email)
             or see <a href="#staff">the list of staff</a>. You may also leave a comment on <a href="#gb">the guestbook</a>.
         </blockquote>
 
@@ -155,7 +157,7 @@
                     <li>GitHub organization: <a target="_blank" href="https://github.com/ari-lt">ari-lt</a> (<a href="mailto:org@ari.lt">org@ari.lt</a>)</li>
                     <li>Matrix: <a target="_blank" href="https://matrix.to/#/@ari:ari.lt">@ari:ari.lt</a></li>
                     <li>Fediverse: <a target="_blank" href="https://ak.ari.lt/ari">@ari@ak.ari.lt</a></li>
-                    <li>E-Mail: <a target="_blank" href="mailto:ari@ari.lt">ari@ari.lt</a> (GPG: <a target="_blank" href="https://keys.openpgp.org/vks/v1/by-fingerprint/4FAD63E936B305906A6C4894A50D5B4B599AF8A2">4FAD63E936B305906A6C4894A50D5B4B599AF8A2</a>)</li>
+                    <li>E-Mail: <a href="mailto:ari@ari.lt">ari@ari.lt</a> (GPG: <a target="_blank" href="https://keys.openpgp.org/vks/v1/by-fingerprint/4FAD63E936B305906A6C4894A50D5B4B599AF8A2">4FAD63E936B305906A6C4894A50D5B4B599AF8A2</a>)</li>
                 </ul>
             </li>
         </ul>
@@ -171,14 +173,42 @@
     this is a good introduction to what I do, what skills I posses.
 </p>
 
-<p>
-    Current status:
-</p>
-
 <div align="center">
-<blockquote><pre>This is a status
-Hello world</pre>
-Last updated: 2024-06-06 00:17:11 UTC</blockquote>
+    <div><b>*** Current status ***</b></div>
+    <br />
+    <div>{{ status["status"] }}</div>
+    <br />
+    <div>Last updated: <b>{{ status["last_updated"] }}</b></div>
+</div>
+
+<h2 id="pages"><a href="#pages">#</a> Pages and redirects</h2>
+
+<div class="split esplit">
+    <div>
+    <ul>
+        <li><a href="/">The home page of Ari.lt</a></li>
+        <li><a href="{{ url_for("views.canary") }}">Warrant canary of Ari.lt</a></li>
+        <li><a href="{{ url_for("views.casey") }}">Open letter to my best friend, Casey</a></li>
+        <li><a href="{{ url_for("views.matrix") }}">Matrix homeserver guidelines and registration</a></li>
+        <li><a target="_blank" href="{{ url_for("views.mp") }}">Music playlist (YouTube)</a></li>
+        <li><a target="_blank" href="{{ url_for("views.dotfiles") }}">My dotfiles (redirect)</a></li>
+        <li><a target="_blank" href="{{ url_for("views.gh") }}">My main Git account (redirect)</a></li>
+        <li><a target="_blank" href="{{ url_for("views.lh") }}">Main Ari.lt organization (redirect)</a></li>
+    </ul>
+    </div>
+
+    <div>
+    <p>
+        Ari.lt includes multiple pages and redirects which include various information. This is a manually collected list
+        of some important pages. If you want a <i>full</i> list of all pages see the <a href="/sitemap.xml">sitemap.xml</a>
+        which has all possible pages on this site in an XML format - mainly used by indexers.
+    </p>
+
+    <p>
+        Ari.lt is still in the middle of migration to full-featured self-hosting, so some stuff might break
+        or change with time, although I try to keep backwards compatibility possible.
+    </p>
+    </div>
 </div>
 
 <h2 id="links"><a href="#links">#</a> Links</h2>
@@ -194,9 +224,16 @@ Last updated: 2024-06-06 00:17:11 UTC</blockquote>
         <li>GitHub organization: <a target="_blank" href="https://github.com/ari-lt">ari-lt</a> (<a href="mailto:org@ari.lt">org@ari.lt</a>)</li>
         <li>Matrix: <a target="_blank" href="https://matrix.to/#/@ari:ari.lt">@ari:ari.lt</a></li>
         <li>Fediverse: <a target="_blank" href="https://ak.ari.lt/ari">@ari@ak.ari.lt</a></li>
-        <li>E-Mail: <a target="_blank" href="mailto:ari@ari.lt">ari@ari.lt</a> (GPG: <a target="_blank" href="https://keys.openpgp.org/vks/v1/by-fingerprint/4FAD63E936B305906A6C4894A50D5B4B599AF8A2">4FAD63E936B305906A6C4894A50D5B4B599AF8A2</a>)</li>
+        <li>E-Mail: <a href="mailto:ari@ari.lt">ari@ari.lt</a> (GPG: <a target="_blank" href="https://keys.openpgp.org/vks/v1/by-fingerprint/4FAD63E936B305906A6C4894A50D5B4B599AF8A2">4FAD63E936B305906A6C4894A50D5B4B599AF8A2</a>)</li>
     </ul>
 </div>
+
+<h3>Badges</h3>
+
+<ul>
+    <li>Normal: <a href="https://ari.lt/"> <img src="{{ url_for("views.badge") }}" loading="lazy" alt="ari-web badge" height="31px" width="88px" /> </a></li>
+    <li>Yellow: <a href="https://ari.lt/"> <img src="{{ url_for("views.badge_yellow") }}" loading="lazy" alt="ari-web badge" height="31px" width="88px" /> </a></li>
+</ul>
 
 <h3>Activity</h3>
 
@@ -222,6 +259,13 @@ Last updated: 2024-06-06 00:17:11 UTC</blockquote>
     of my abilities, although these are practical examples of things I work on
     sometimes.
 </p>
+
+<h3>Support</h3>
+
+<ul>
+    <li>Monero wallet address: <a target="_blank" href="{{ url_for("views.xmr") }}">{{ url_for("views.xmr") | escape }}</a></li>
+    <li>Bitcoin wallet address: <a target="_blank" href="{{ url_for("views.btc") }}">{{ url_for("views.btc") | escape }}</a></li>
+</ul>
 
 <h2 id="staff"><a href="#staff">#</a> Staff</h2>
 
@@ -306,7 +350,7 @@ Last updated: 2024-06-06 00:17:11 UTC</blockquote>
         </tr>
         <tr>
             <td>Email server hosting <a href="https://mailcow.email/" target="_blank">Mailcow</a></td>
-            <td>Contact <a href="mailto:ari@ari.lt" target="_blank">ari@ari.lt</a> for custom domains (aggressive policy)</td>
+            <td>Contact <a href="mailto:ari@ari.lt">ari@ari.lt</a> for custom domains (aggressive policy)</td>
             <td><a href="https://mail.ari.lt/" target="_blank">mail.ari.lt</a> (<a href="https://mail.ari.lt/signup" target="_blank">register here</a>)</td>
         </tr>
         <tr>
@@ -355,10 +399,11 @@ Last updated: 2024-06-06 00:17:11 UTC</blockquote>
 <h2 id="gb"><a href="#gb">#</a> Guestbook</h2>
 
 <p>
-    If you want to interact with the community feel free to leave your comments here! You will require an
-    email address to prevent spam and impersonation, it will be listed, although not as text as it will
-    be encrypted server-side using <a target="_blank" href="https://en.wikipedia.org/wiki/RC4">RC4</a> (a fast, but insecure cipher)
-    with a 32-byte (256 bit) key. Check your mailbox when you comment as you will need to verify the comment.
+    If you want to interact with the community feel free to leave your comments here!
+    You will require an email address so to prevent spam and scams, although, to protect
+    <i>you</i> from spam and scam emails, I have implemented measures to not store your
+    email address as plain text. Press 'show email' to show the email address on any given
+    comment.
 </p>
 
 <form method="post">
@@ -378,8 +423,8 @@ Last updated: 2024-06-06 00:17:11 UTC</blockquote>
     </div>
 
     <div class="form-group">
-        <label for="comment">Comment:</label>
-        <textarea required type="text" id="comment" name="comment" placeholder="Hello!"></textarea>
+        <label for="comment">Comment (<a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">markdown</a>):</label>
+        <textarea required type="text" id="comment" name="comment" placeholder="Hello! I like your website - &lt;https://ari.lt/&gt;."></textarea>
     </div>
 
     <div class="captcha">
@@ -389,30 +434,23 @@ Last updated: 2024-06-06 00:17:11 UTC</blockquote>
 
     <div class="form-group">
         <label for="captcha">CAPTCHA:</label>
-        <input required type="text" id="comment" name="comment" placeholder="Enter the CAPTCHA code above." />
+        <input required type="text" id="code" name="code" placeholder="Enter the CAPTCHA code above." />
     </div>
 
     <button type="submit">Comment</button>
 </form>
-
-<hr />
 
 <div align="center">
     <i>Report any impersonation to the owner of this website: Ari Archer.</i>
 </div>
 
 <div id="comments">
-    <div id="guestbook-1">
-        <p><a href="#guestbook-1">#1:</a> Cool Person (<a target="_blank" href="#!">https://example.com/</a>) &lt;<i><button onclick="rc4('data','key')">show email</button></i>&gt; at 2024-06-05 11:11:11 UTC says...</p>
-        <pre>Cool website, but you should kill yourself!
-Meow!</pre>
+    {% for comment in comments %}
+    <div id="gb-{{ comment.id }}">
+        <p><a href="#gb-{{ comment.id }}">#{{ comment.id }}:</a> <span>{{ comment.name | escape }}</span> {% if comment.website %} (<a target="_blank" href="{{ comment.website }}" rel="noopener noreferrer" target="_blank">{{ comment.website | escape }}</a>) {% endif %} &lt;<i><a href="mailto:" style="color:#aaa" onclick="this.innerText=rc4('{{ b64encode(comment.email_ct).decode() }}','{{ b64encode(comment.key).decode() }}');this.href+=this.innerText;this.onclick=null;this.style='';return false">show email</a></i>&gt; at <time>{{ comment.posted }} UTC</time> says...</p>
+        <div>{{ comment.comment | markdown }}</div>
     </div>
-
-    <div id="guestbook-1">
-        <p><a href="#guestbook-1">#1:</a> Cool Person (<a target="_blank" href="#!">https://example.com/</a>) &lt;<i><button onclick="rc4('data','key')">show email</button></i>&gt; at 2024-06-05 11:11:11 UTC says...</p>
-        <pre>Cool website, but you should kill yourself!
-Meow!</pre>
-    </div>
+    {% endfor %}
 </div>
 
 {% endblock %}

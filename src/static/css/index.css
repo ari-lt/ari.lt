@@ -5,28 +5,41 @@
 }
 
 .split {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 3fr 0.5em 1fr;
     grid-template-columns: 3fr 1fr;
     grid-gap: 0.5em;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
     align-items: stretch;
     height: 100%;
 }
 
 .split > * {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     padding: 2em;
     height: 100%;
 }
 
 .esplit {
+    -ms-grid-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
 }
 
 .split > :first-child {
     position: relative;
     overflow: hidden;
+    text-align: justify;
 }
 
 .split > :first-child::before {
@@ -37,6 +50,7 @@
     top: 0;
     bottom: 0;
     border-right: 2px solid var(--red);
+    -webkit-animation: grow 0.5s forwards;
     animation: grow 0.5s forwards;
     pointer-events: none;
 }
@@ -68,9 +82,11 @@ form > button {
 }
 
 .form-group {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 8rem 1rem auto;
     grid-template-columns: 8em auto;
-    grid-gap: 1em;
+    grid-gap: 1rem;
     margin: 0.4em;
 }
 
@@ -86,6 +102,7 @@ form > button {
 }
 
 .captcha {
+    display: -ms-grid;
     display: grid;
     place-items: center;
     margin: 0.5em;
@@ -100,36 +117,59 @@ form > button {
     background-color: #111;
     padding: 0.5em;
     margin: 0.5em;
+    width: 100%;
 }
 
-#comments > div button {
-    border: none;
-    background-color: #000;
-    cursor: pointer;
-    border-bottom: 1px solid var(--red);
+@-webkit-keyframes grow {
+    from {
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
+    }
+    to {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+    }
 }
 
 @keyframes grow {
     from {
+        -webkit-transform: scaleY(0);
         transform: scaleY(0);
     }
     to {
+        -webkit-transform: scaleY(1);
         transform: scaleY(1);
     }
 }
 
 @media only screen and (max-width: 1250px) {
     .split {
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
+        -ms-grid-rows: auto 0.5em auto;
         grid-template-rows: auto auto;
+        -webkit-box-align: unset;
+        -ms-flex-align: unset;
         align-items: unset;
+    }
+    .split > *:nth-child(1) {
+        -ms-grid-row: 1;
+        -ms-grid-column: 1;
+    }
+    .split > *:nth-child(2) {
+        -ms-grid-row: 3;
+        -ms-grid-column: 1;
     }
 
     .split > :first-child {
+        -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
         order: 2;
     }
 
     .split > :last-child {
+        -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
         order: 1;
     }
 

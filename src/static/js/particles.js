@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     canvas.height = window.innerHeight;
 
     let particles = [];
-    const particle_density = 1.5e-5;
+    const particle_density = 2e-5;
     let num_particles;
 
     const particle_size = 2;

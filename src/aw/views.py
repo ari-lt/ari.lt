@@ -2,22 +2,171 @@
 # -*- coding: utf-8 -*-
 """views"""
 
+import datetime
+import os
 import typing as t
 
 import flask
+import validators
 from werkzeug.wrappers import Response
 
-from .routing import Bp
+from . import email, models
 from .c import c
+from .routing import Bp
 
 views: Bp = Bp("views", __name__)
+status: t.Dict[str, t.Any] = {
+    "status": "<i>No status</i>",
+    "last_updated": datetime.datetime.now(datetime.timezone.utc),
+}
+
+
+@views.get("/status")
+def get_status() -> t.Any:
+    """Get status"""
+    return flask.jsonify(  # type: ignore
+        {
+            "status": status["status"],
+            "last_updated": status["last_updated"].timestamp(),
+        }
+    )
+
+
+@views.post("/status")
+def set_status() -> Response:
+    """Set status"""
+
+    if (
+        "status" in flask.request.form
+        and flask.request.headers.get("X-Admin-Key", None) == os.environ["ADMIN_KEY"]
+    ):
+        status["status"] = str(flask.request.form["status"])  # type: ignore
+        status["last_updated"] = datetime.datetime.now(datetime.timezone.utc)
+        return flask.jsonify(  # type: ignore
+            {
+                "status": status["status"],
+                "last_updated": status["last_updated"].timestamp(),
+            }
+        )
+    else:
+        flask.abort(401)
 
 
 @views.get("/index.html", alias=True)
 @views.get("/")
 def index() -> str:
     """Home page"""
-    return flask.render_template("index.j2")
+
+    return flask.render_template(
+        "index.j2",
+        visitor=models.Counter.first().inc().count,
+        comments=models.Comment.query.filter_by(confirmed=True).order_by(
+            models.Comment.posted.desc()  # type: ignore
+        ),
+        status=status,
+    )
+
+
+@views.get("/confirm/<int:comment_id>/<string:token>/", alias=True)
+@views.get("/confirm/<int:comment_id>/<string:token>")
+def confirm(comment_id: int, token: str):
+    """confirm publishing of a comment"""
+
+    comment: models.Comment = models.Comment.query.filter_by(
+        id=comment_id, token=token, confirmed=False
+    ).first_or_404()
+
+    comment.confirmed = True
+
+    models.db.session.commit()
+
+    email.sendmail(
+        "ari@ari.lt",
+        f"Comment #{comment.id} on the guestbook",
+        f"""New comment on the guestbook for you to check out.
+
+
+URL: {flask.url_for("views.index")}#{comment.id}
+Name: {comment.name}
+Website: {comment.website}
+Comment:
+
+```
+{comment.comment}
+```""",
+    )
+
+    flask.flash(f"Comment #{comment_id} confirmed.")
+
+    return flask.redirect(flask.url_for("views.index"))
+
+
+@views.post("/")
+def comment():
+    """publish a comment"""
+
+    for field in "name", "email", "comment", "code":
+        if field not in flask.request.form:
+            flask.abort(400)
+
+    if not c.verify(flask.request.form["code"]):  # type: ignore
+        flask.abort(403)
+
+    if not validators.email(flask.request.form["email"]):
+        flask.abort(400)
+
+    if (
+        "website" in flask.request.form
+        and flask.request.form["website"]
+        and not validators.url(flask.request.form["website"])
+    ):
+        flask.abort(400)
+
+    try:
+        comment: models.Comment = models.Comment(
+            flask.request.form["name"],  # type: ignore
+            flask.request.form.get("website", None),  # type: ignore
+            flask.request.form["email"],  # type: ignore
+            flask.request.form["comment"],  # type: ignore
+        )
+    except Exception:
+        flask.abort(400)
+
+    models.db.session.add(comment)
+    models.db.session.commit()
+
+    try:
+        email.sendmail(
+            flask.request.form["email"],  # type: ignore
+            f"Email confirmation for guestbook comment #{comment.id}",
+            f"""Hello!
+
+Someone (or you) have commented on the https://ari.lt/ guestbook. If it was you, please confirm your email address below. Else - you may ignore it.
+
+The comment is:
+
+Name: {comment.name}
+Website: {comment.website or "<none>"}
+Comment:
+
+```
+{comment.comment}
+```
+
+Visit the following URL to *confirm* your email:
+
+{flask.request.url.rstrip("/")}{flask.url_for("views.confirm", comment_id=comment.id, token=comment.token)}
+
+...Or paste it into your browser.""",
+        )
+    except Exception:
+        models.db.session.delete(comment)
+        models.db.session.commit()
+        flask.abort(400)
+
+    flask.flash("Check your mailbox.")
+
+    return flask.redirect(flask.url_for("views.index"))
 
 
 @views.get("/manifest.json")
@@ -56,14 +205,6 @@ def license() -> flask.Response:
         with open("LICENSE", "r") as fp:
             return flask.Response(fp.read(), mimetype="text/plain")
 
-@views.post("/")
-def comment() -> flask.Response:
-    """publish a comment"""
-    return flask.Response(
-        c.new().rawpng(),
-        mimetype="image/png"
-    )
-
 
 @views.get("/git", defaults={"_": ""})
 @views.get("/git/", defaults={"_": ""})
@@ -71,7 +212,7 @@ def comment() -> flask.Response:
 def git(_: str) -> Response:
     """Git source code"""
     return flask.redirect(
-        f"https://ari.lt/lh/us.ari.lt/{flask.request.full_path[4:]}",
+        f"/lh/ari.lt/{flask.request.full_path[4:]}",
         code=302,
     )
 
@@ -87,32 +228,118 @@ def favicon() -> Response:
         )
     )
 
+
 @views.get("/captcha.png")
 def captcha() -> flask.Response:
     """CAPTCHA"""
-    return flask.Response(
-        c.new().rawpng(),
-        mimetype="image/png"
-    )
+    return flask.Response(c.new().rawpng(), mimetype="image/png")
 
 
 @views.get("/badge.png")
 def badge() -> Response:
     """Website badge"""
-    return flask.redirect(
+    r: Response = flask.redirect(
         flask.url_for(
             "static",
             filename="badges/badge.png",
         )
     )
 
+    r.headers["Access-Control-Allow-Origin"] = "*"
+    r.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS, HEAD"
+
+    return r
+
 
 @views.get("/badge-yellow.png")
 def badge_yellow() -> Response:
-    """Website badge (yellow)"""
-    return flask.redirect(
+    """Website badge"""
+    r: Response = flask.redirect(
         flask.url_for(
             "static",
             filename="badges/badge-yellow.png",
         )
+    )
+
+    r.headers["Access-Control-Allow-Origin"] = "*"
+    r.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS, HEAD"
+
+    return r
+
+
+@views.get("/btc")
+def btc() -> Response:
+    """Bitcoin address"""
+    return flask.redirect(
+        "https://www.blockchain.com/explorer/addresses/btc/bc1qn3k75kmyvpw9sc58t63hk4ej4pc0d0w52tvj7w"
+    )
+
+
+@views.get("/xmr")
+def xmr() -> Response:
+    """Monero address"""
+    return flask.redirect(
+        "https://moneroexplorer.org/search?value=451VZy8FPDXCVvKWkq5cby3V24ApLnjaTdwDgKG11uqbUJYjxQWZVKiiefi4HvFd7haeUtGFRBaxgKNTr3vR78pkMzgJaAZ"
+    )
+
+
+@views.get("/page/canary", alias=True)
+@views.get("/canary")
+def canary():
+    """Warrant Canary"""
+    return "Unavailable due to migration reasons."
+
+
+@views.get("/page/casey", alias=True)
+@views.get("/casey")
+def casey():
+    """Open letter to my best friend"""
+    return "Unavailable due to migration reasons."
+
+
+@views.get("/page/matrix", alias=True)
+@views.get("/matrix")
+def matrix():
+    """Matrix homeserver guidelines and Registration"""
+    return "Unavailable due to migration reasons."
+
+
+@views.get("/mp")
+def mp():
+    """Music playlist"""
+    return flask.redirect(
+        "https://www.youtube.com/playlist?list=PL7UuKajElTaChff3BkcJE6620lSuSUaDC"
+    )
+
+
+@views.get("/dotfiles", defaults={"_": ""})
+@views.get("/dotfiles/", defaults={"_": ""})
+@views.get("/dotfiles/<path:_>")
+def dotfiles(_: str) -> Response:
+    """Dotfiles"""
+    return flask.redirect(
+        f"https://github.com/TruncatedDinoSour/dotfiles-cleaned/{flask.request.full_path[9:]}",
+        code=302,
+    )
+
+
+@views.get("/gh", defaults={"_": ""})
+@views.get("/gh/", defaults={"_": ""})
+@views.get("/gh/<path:_>")
+def gh(_: str) -> Response:
+    """Main git account"""
+    return flask.redirect(
+        f"https://github.com/TruncatedDinoSour/{flask.request.full_path[3:]}",
+        code=302,
+    )
+
+
+@views.get("/lh", defaults={"_": ""})
+@views.get("/lh/", defaults={"_": ""})
+@views.get("/lh/<path:_>")
+def lh(_: str) -> Response:
+    """Main git organization account"""
+    return flask.redirect(
+        f"https://github.com/ari-lt/{flask.request.full_path[3:]}",
+        code=302,
     )

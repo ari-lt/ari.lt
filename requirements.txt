@@ -3,3 +3,8 @@ types-flask
 flask-sqlalchemy
 flask-ishuman
 crc4
+validators
+markdown
+jinja2
+MarkupSafe
+bleach

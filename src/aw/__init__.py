@@ -3,18 +3,20 @@
 """ari.lt"""
 
 import datetime
-import hashlib
 import os
 import sys
+from base64 import b64encode
 from typing import Any
 
 import flask
+
+from . import util
 
 
 def create_app(name: str) -> flask.Flask:
     """create ari.lt app"""
 
-    for var in ("DB",):
+    for var in ("DB", "EMAIL_USER", "EMAIL_SERVER", "EMAIL_PASSWORD"):
         if var not in os.environ:
             print(f"Environment variable {var} is unset.", file=sys.stderr)
             sys.exit(1)
@@ -41,19 +43,17 @@ def create_app(name: str) -> flask.Flask:
 
     app.config["USE_SESSION_FOR_NEXT"] = True
 
-    from .models import Admin, db
+    from .models import Counter, db
 
     with app.app_context():
         db.init_app(app)
         db.create_all()
 
-        # if db.session.query(Admin).count() < 1:
-        #     print("Creating an admin account...")
+        if db.session.query(Counter).count() < 1:
+            print("Creating a website counter...")
+            db.session.add(Counter(int(input("Count: "))))
 
-        #     full_name: str = input("Full name: ")
-        #     email: str = input("Email: ")
-        #     salt: bytes = os.urandom(64)
-        #     pwhash: bytes = hashlib.sha3_512(salt + input("Password: ")).digest()
+        db.session.commit()
 
     from .views import views
 
@@ -62,6 +62,8 @@ def create_app(name: str) -> flask.Flask:
     from .c import c
 
     c.init_app(app)
+
+    app.jinja_env.filters["markdown"] = util.markdown_to_html
 
     @app.context_processor  # type: ignore
     def _() -> Any:
@@ -75,6 +77,7 @@ def create_app(name: str) -> flask.Flask:
             "programming_exp": y - 2016,
             "python_exp": y - 2016,
             "c_exp": y - 2020,
+            "b64encode": b64encode,
         }
 
     return app
