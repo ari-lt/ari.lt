@@ -406,6 +406,10 @@
     comment.
 </p>
 
+<p>
+    <b>TL;DR;</b> your email is stored and can be seen publicly.
+</p>
+
 <form method="post">
     <div class="form-group">
         <label for="name">Name:</label>
@@ -435,6 +439,11 @@
     <div class="form-group">
         <label for="captcha">CAPTCHA:</label>
         <input required type="text" id="code" name="code" placeholder="Enter the CAPTCHA code above." />
+    </div>
+
+    <div class="form-group">
+        <label for="agree">I agree with the email policy:</label>
+        <input required type="checkbox" id="agree" name="agree" />
     </div>
 
     <button type="submit">Comment</button>
