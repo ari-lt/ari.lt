@@ -10,7 +10,7 @@ import flask
 import validators
 from werkzeug.wrappers import Response
 
-from . import email, models
+from . import email, models, util
 from .c import c
 from .routing import Bp
 
@@ -226,6 +226,23 @@ def favicon() -> Response:
             filename="favicons/ari-web-lgbt.ico",
             mimetype="image/vnd.microsoft.icon",
         )
+    )
+
+
+@views.get("/counter.svg")
+def counter() -> flask.Response:
+    """counter"""
+    return flask.Response(
+        util.text2svg(
+            text=str(models.Counter.first().inc().count),
+            fill=flask.request.args.get("fill", "#fff"),
+            font=flask.request.args.get("font", "sans-serif"),
+            size=float(flask.request.args.get("size", 16)),
+            baseline=float(flask.request.args.get("baseline", 1)),
+            padding=float(flask.request.args.get("padding", 1)),
+            ratio=float(flask.request.args.get("radio", 1)),
+        ),
+        mimetype="image/svg+xml",
     )
 
 
