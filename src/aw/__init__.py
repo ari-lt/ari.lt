@@ -9,6 +9,7 @@ from base64 import b64encode
 from typing import Any
 
 import flask
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 from . import util
 
@@ -22,6 +23,7 @@ def create_app(name: str) -> flask.Flask:
             sys.exit(1)
 
     app: flask.Flask = flask.Flask(name)
+    app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1)  # type: ignore
 
     app.config["PREFERRED_URL_SCHEME"] = "http" if app.debug else "https"
     app.config["DOMAIN"] = "ari.lt"
