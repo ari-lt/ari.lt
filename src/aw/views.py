@@ -169,7 +169,7 @@ Comment:
 {comment.comment}
 ```
 
-Visit the following URL to *confirm* this email:
+Visit the following URL to *confirm* the comment:
 
     {flask.request.url.rstrip("/")}{flask.url_for("views.confirm", comment_id=comment.id, token=comment.token)}
 
@@ -177,9 +177,11 @@ Or you may *delete* the comment (even if you haven't confirmed it yet) by going 
 
     {flask.request.url.rstrip("/")}{flask.url_for("views.delete", comment_id=comment.id, token=comment.token)}
 
-If clicking the link does not work, try pasting it into your browser or running `curl`/`wget`/`axel` on it :)
+You may delete the comment at any point.
 
-Please do not reply to this email and if you have any questions - email ari@ari.lt (Ari Archer with the GPG key 4FAD63E936B305906A6C4894A50D5B4B599AF8A2).""",
+If clicking the link does not work, try pasting it into your browser or running `curl`/`wget`/`axel`/... on it :)
+
+Please do not reply to this email and if you have any questions - email Ari Archer <ari@ari.lt> with the GPG key 4FAD63E936B305906A6C4894A50D5B4B599AF8A2.""",
         )
     except Exception:
         models.db.session.delete(comment)
