@@ -6,12 +6,26 @@ import datetime
 import os
 import sys
 from base64 import b64encode
+from functools import lru_cache
 from typing import Any
 
 import flask
+import web_mini
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 from . import util
+
+
+@lru_cache
+def min_css(css: str) -> str:
+    """minify css"""
+    return web_mini.css.minify_css(css)
+
+
+@lru_cache(maxsize=64)
+def min_html(html: str) -> str:
+    """minify html"""
+    return web_mini.html.minify_html(html)
 
 
 def create_app(name: str) -> flask.Flask:
@@ -65,7 +79,40 @@ def create_app(name: str) -> flask.Flask:
 
     c.init_app(app)
 
-    app.jinja_env.filters["markdown"] = util.markdown_to_html
+    app.jinja_env.filters["markdown"] = util.markdown_to_html  # type: ignore
+
+    web_mini.compileall()
+
+    @app.after_request
+    def _(response: flask.Response) -> flask.Response:
+        """minify resources and add headers"""
+
+        if not app.debug:
+            response.headers["Content-Security-Policy"] = "upgrade-insecure-requests"
+            response.headers["Strict-Transport-Security"] = (
+                "max-age=63072000; includeSubDomains; preload"
+            )
+
+        response.headers["X-Frame-Options"] = "SAMEORIGIN"
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["X-Permitted-Cross-Domain-Policies"] = "none"
+
+        if response.direct_passthrough:
+            return response
+
+        if response.content_type == "text/html; charset=utf-8":
+            minified_data: str = min_html(response.get_data(as_text=True))
+        elif response.content_type == "text/css; charset=utf-8":
+            minified_data: str = min_css(response.get_data(as_text=True))
+        else:
+            return response
+
+        return app.response_class(  # type: ignore
+            response=minified_data,
+            status=response.status,
+            headers=dict(response.headers),
+            mimetype=response.mimetype,
+        )
 
     @app.context_processor  # type: ignore
     def _() -> Any:
