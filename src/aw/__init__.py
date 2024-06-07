@@ -22,12 +22,6 @@ def min_css(css: str) -> str:
     return web_mini.css.minify_css(css)
 
 
-@lru_cache(maxsize=64)
-def min_html(html: str) -> str:
-    """minify html"""
-    return web_mini.html.minify_html(html)
-
-
 def create_app(name: str) -> flask.Flask:
     """create ari.lt app"""
 
@@ -100,9 +94,7 @@ def create_app(name: str) -> flask.Flask:
         if response.direct_passthrough:
             return response
 
-        if response.content_type == "text/html; charset=utf-8":
-            minified_data: str = min_html(response.get_data(as_text=True))
-        elif response.content_type == "text/css; charset=utf-8":
+        if response.content_type == "text/css; charset=utf-8":
             minified_data: str = min_css(response.get_data(as_text=True))
         else:
             return response
