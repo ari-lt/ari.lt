@@ -4,7 +4,7 @@ set -u
 
 main() {
     kill -9 $(pgrep python3) || true
-    kill -9 $(pgrep memcached) || true
+    kill -9 $(pgrep gunicorn) || true
 
     cd src
     python3 -m pip install gunicorn

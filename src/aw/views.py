@@ -96,7 +96,22 @@ Comment:
 ```""",
     )
 
-    flask.flash(f"Comment #{comment_id} confirmed.")
+    flask.flash(f"Comment #{comment.id} confirmed.")
+
+    return flask.redirect(flask.url_for("views.index"))
+
+
+@views.get("/delete/<int:comment_id>/<string:token>/", alias=True)
+@views.get("/delete/<int:comment_id>/<string:token>")
+def delete(comment_id: int, token: str):
+    """delete a comment"""
+
+    comment: models.Comment = models.Comment.query.filter_by(id=comment_id, token=token).first_or_404()
+
+    models.db.session.delete(comment)
+    models.db.session.commit()
+
+    flask.flash(f"Comment #{comment.id} deleted.")
 
     return flask.redirect(flask.url_for("views.index"))
 
@@ -157,7 +172,11 @@ Visit the following URL to *confirm* your email:
 
 {flask.request.url.rstrip("/")}{flask.url_for("views.confirm", comment_id=comment.id, token=comment.token)}
 
-...Or paste it into your browser.""",
+Or you may delete the comment:
+
+{flask.request.url.rstrip("/")}{flask.url_for("views.delete", comment_id=comment.id, token=comment.token)}
+
+If clicking doesn't work - try pasting it into your browser, or running `curl`/`wget`/`axel` on it :)""",
         )
     except Exception:
         models.db.session.delete(comment)
