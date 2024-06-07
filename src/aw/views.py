@@ -156,8 +156,7 @@ def comment():
             f"Email confirmation for guestbook comment #{comment.id}",
             f"""Hello!
 
-You (or someone) have commented on the {flask.request.url} guestbook. If it was you, please confirm your email address below. Otherwise - you may ignore this email
-or delete the comment by visiting the "delete" URL below.
+You (or someone) have commented on the {flask.request.url} guestbook. If it was you, please confirm your email address below. Otherwise - you may ignore this email or delete the comment by visiting the "delete" URL below.
 
 The comment content includes your email (which will be listed publicly), as well as:
 
