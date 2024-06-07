@@ -157,9 +157,9 @@ def comment():
             f"""Hello!
 
 You (or someone) have commented on the {flask.request.url} guestbook. If it was you, please confirm your email address below. Otherwise - you may ignore this email
-or delete the email by going to the URL linked below.
+or delete the comment by visiting the "delete" URL below.
 
-The comment content includes your email, as well as:
+The comment content includes your email (which will be listed publicly), as well as:
 
 Name: {comment.name}
 Website: {comment.website or "<none>"}
@@ -173,13 +173,13 @@ Visit the following URL to *confirm* this email:
 
     {flask.request.url.rstrip("/")}{flask.url_for("views.confirm", comment_id=comment.id, token=comment.token)}
 
-Or you may delete this comment by going to:
+Or you may *delete* the comment (even if you haven't confirmed it yet) by going to:
 
     {flask.request.url.rstrip("/")}{flask.url_for("views.delete", comment_id=comment.id, token=comment.token)}
 
-If clicking the URL does not work, try pasting it into your browser or running `curl`/`wget`/`axel` on it :)
+If clicking the link does not work, try pasting it into your browser or running `curl`/`wget`/`axel` on it :)
 
-Please do not reply to this email, if you have any questions - email ari@ari.lt""",
+Please do not reply to this email and if you have any questions - email ari@ari.lt (Ari Archer with the GPG key 4FAD63E936B305906A6C4894A50D5B4B599AF8A2).""",
         )
     except Exception:
         models.db.session.delete(comment)
