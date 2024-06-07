@@ -93,7 +93,11 @@ Comment:
 
 ```
 {comment.comment}
-```""",
+```
+
+Deletion token:
+
+    {comment.token}""",
     )
 
     flask.flash(f"Comment #{comment.id} confirmed.")
