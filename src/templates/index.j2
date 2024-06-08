@@ -431,16 +431,6 @@
     <textarea required type="text" id="comment" name="comment" placeholder="Hello! I like your website - &lt;https://ari.lt/&gt;."></textarea>
   </div>
 
-  <div class="captcha">
-    <img loading="lazy" width="240px" height="90" src="{{ url_for("views.captcha") }}?new" onclick="this.src=this.src+Math.floor(1000*Math.random())" alt="An image CAPTCHA" />
-    <i>Click the image above to reload and get a new CAPTCHA.</i>
-  </div>
-
-  <div class="form-group">
-    <label for="captcha">CAPTCHA:</label>
-    <input required type="text" id="code" name="code" placeholder="Enter the CAPTCHA code above." />
-  </div>
-
   <div class="form-group">
     <label for="agree">Email Policy Agreement:</label>
     <input required type="checkbox" id="agree" name="agree" />

@@ -69,10 +69,6 @@ def create_app(name: str) -> flask.Flask:
 
     app.register_blueprint(views, url_prefix="/")
 
-    from .c import c
-
-    c.init_app(app)
-
     app.jinja_env.filters["markdown"] = util.markdown_to_html  # type: ignore
 
     web_mini.compileall()

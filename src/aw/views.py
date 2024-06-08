@@ -11,7 +11,6 @@ import validators
 from werkzeug.wrappers import Response
 
 from . import email, models, util
-from .c import c
 from .routing import Bp
 
 views: Bp = Bp("views", __name__)
@@ -110,7 +109,9 @@ Deletion token:
 def delete(comment_id: int, token: str):
     """delete a comment"""
 
-    comment: models.Comment = models.Comment.query.filter_by(id=comment_id, token=token).first_or_404()
+    comment: models.Comment = models.Comment.query.filter_by(
+        id=comment_id, token=token
+    ).first_or_404()
 
     models.db.session.delete(comment)
     models.db.session.commit()
@@ -124,12 +125,9 @@ def delete(comment_id: int, token: str):
 def comment():
     """publish a comment"""
 
-    for field in "name", "email", "comment", "code":
+    for field in "name", "email", "comment":
         if field not in flask.request.form:
             flask.abort(400)
-
-    if not c.verify(flask.request.form["code"]):  # type: ignore
-        flask.abort(403)
 
     if not validators.email(flask.request.form["email"]):
         flask.abort(400)
@@ -271,12 +269,6 @@ def counter() -> flask.Response:
         ),
         mimetype="image/svg+xml",
     )
-
-
-@views.get("/captcha.png")
-def captcha() -> flask.Response:
-    """CAPTCHA"""
-    return flask.Response(c.new().rawpng(), mimetype="image/png")
 
 
 @views.get("/badge.png")
