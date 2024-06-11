@@ -53,6 +53,10 @@ def create_app(name: str) -> flask.Flask:
 
     app.config["USE_SESSION_FOR_NEXT"] = True
 
+    from .c import c
+
+    c.init_app(app)
+
     from .models import Counter, db
 
     with app.app_context():

@@ -108,6 +108,18 @@ form > button {
     width: 100%;
 }
 
+.captcha {
+    display: -ms-grid;
+    display: grid;
+    place-items: center;
+    margin: 0.5em;
+}
+
+.captcha > img {
+    display: block;
+    cursor: pointer;
+}
+
 @-webkit-keyframes grow {
     from {
         -webkit-transform: scaleY(0);

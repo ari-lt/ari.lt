@@ -11,6 +11,7 @@ import validators
 from werkzeug.wrappers import Response
 
 from . import email, models, util
+from .c import c
 from .limiter import limiter
 from .routing import Bp
 
@@ -130,9 +131,12 @@ def delete(comment_id: int, token: str):
 def comment():
     """publish a comment"""
 
-    for field in "name", "email", "comment":
+    for field in "name", "email", "comment", "code":
         if field not in flask.request.form:
             flask.abort(400)
+
+    if not c.verify(flask.request.form["code"]):  # type: ignore
+        flask.abort(403)
 
     if not validators.email(flask.request.form["email"]):
         flask.abort(400)
@@ -306,6 +310,12 @@ def badge_yellow() -> Response:
     r.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS, HEAD"
 
     return r
+
+
+@views.get("/captcha.png")
+def captcha() -> Response:
+    """CAPTCHA"""
+    return flask.Response(c.new().rawpng(), mimetype="image/png")
 
 
 @views.get("/btc")

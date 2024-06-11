@@ -9,3 +9,4 @@ MarkupSafe
 bleach
 web-mini
 flask-limiter
+flask-ishuman
