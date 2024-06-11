@@ -254,13 +254,7 @@ def git(_: str) -> Response:
 @views.get("/favicon.ico")
 def favicon() -> Response:
     """Website icon"""
-    return flask.redirect(
-        flask.url_for(
-            "static",
-            filename="favicons/ari-web-lgbt.ico",
-            mimetype="image/vnd.microsoft.icon",
-        )
-    )
+    return flask.send_from_directory("static/favicons", "ari-web-lgbt.ico")
 
 
 @views.get("/counter.svg")

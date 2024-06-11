@@ -4,7 +4,7 @@
 
 {% block description %}Ari-web: A personal website of a Lithuanian open source developer Ari Archer (Arija A.) who provides different free, private, and open source services for others.{% endblock %}
 
-{% block keywords %}ari::web, services, foss services, homepage, portfolio, resume{% endblock %}
+{% block keywords %}ari::web, services, foss services, homepage, portfolio, resume, matrix, says, https, email{% endblock %}
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for("static", filename="fonts/Hack.css") }}" type="text/css" referrerpolicy="no-referrer" />
@@ -38,8 +38,8 @@
 
     //--><!]]>
 </script>
-<script src="{{ url_for("static", filename="js/particles.js") }}" referrerpolicy="no-referrer"></script>
-<script src="{{ url_for("static", filename="js/rc4.js") }}" referrerpolicy="no-referrer"></script>
+<script src="{{ url_for("static", filename="js/particles.js") }}" referrerpolicy="no-referrer" defer></script>
+<script src="{{ url_for("static", filename="js/rc4.js") }}" referrerpolicy="no-referrer" defer></script>
 {% endblock %}
 
 {% block header %}
@@ -77,21 +77,21 @@
         <p>
             My name is <b>Ari Archer</b> also known as <b>Arija A.</b>, but most commonly referred to as
             <b>Ari</b>. I am a <b>{{ ari_age }} year old</b>, neurodivergent, transgender, open source developer from Lithuania who does
-            fun stuff in primarily <a target="_blank" href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> (~<b>{{ python_exp }}</b> years)
-            and <a target="_blank" href="https://en.wikipedia.org/wiki/C_(programming_language)">C (89, 99)</a> (~<b>{{ c_exp }}</b> years).
+            fun stuff in primarily <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> (~<b>{{ python_exp }}</b> years)
+            and <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/C_(programming_language)">C (89, 99)</a> (~<b>{{ c_exp }}</b> years).
         </p>
 
         <p>
             I've picked up programming at first in Python, writing various programs on my phone, and later on discovering a community
             where I could share my code. At the time I didn't have access to a computer, so I used to play around with
-            basic <a target="_blank" href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> on my local library computers.
-            At around 2019 I got access to a personal computer, which is where my main <a target="_blank" href="https://en.wikipedia.org/wiki/Free_and_open-source_software">FOSS</a> journey started -
+            basic <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> on my local library computers.
+            At around 2019 I got access to a personal computer, which is where my main <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Free_and_open-source_software">FOSS</a> journey started -
             exploring more technologies and understanding them more in-depth, not being limited by a locked down phone.
         </p>
 
         <p>
-            I hated the limiting feeling of being on <a target="_blank" href="https://en.wikipedia.org/wiki/Microsoft_Windows">Microsoft Windows</a> 10
-            very limiting, so soon after getting a personal computer I installed a free and open source <a target="_blank" href="https://en.wikipedia.org/wiki/Linux">Linux</a>
+            I hated the limiting feeling of being on <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Microsoft_Windows">Microsoft Windows</a> 10
+            very limiting, so soon after getting a personal computer I installed a free and open source <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Linux">Linux</a>
             kernel distribution - and I've never went back to Windows ever since then. <i>Democracy, freedom, shareability</i>
             and <i>customization</i> ("hackability") are huge values for me.
         </p>
@@ -99,7 +99,7 @@
         <p>
             Technology is a big part of my life, and I am way past the stage where I find <i>just</i> technology fascinating -
             I find various problems and their optimal solutions very interesting and I like to come up with my own - even if
-            it's "<a target="_blank" href="https://en.wikipedia.org/wiki/Reinventing_the_wheel">reinventing the wheel</a>" or "impractical" -
+            it's "<a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Reinventing_the_wheel">reinventing the wheel</a>" or "impractical" -
             I like to dig deep into it and understand how it works at its core, rather than relying on high-level features of an
             abstraction stack. I was always a person like this, not specifically in technology - I was always the nerdy science kid -
             but everywhere.
@@ -149,12 +149,12 @@
                 Contacts
 
                 <ul>
-                    <li>GitHub: <a target="_blank" href="https://github.com/TruncatedDinoSour">TruncatedDinoSour</a></li>
-                    <li>GitHub organization: <a target="_blank" href="https://github.com/ari-lt">ari-lt</a> (<a href="mailto:org@ari.lt">org@ari.lt</a>)</li>
-                    <li>Matrix: <a target="_blank" href="https://matrix.to/#/@ari:ari.lt">@ari:ari.lt</a></li>
-                    <li>XMPP/Jabber: <a target="_blank" href="xmpp:ari@ari.lt">ari@ari.lt</a></li>
-                    <li>Fediverse: <a target="_blank" href="https://ak.ari.lt/ari">@ari@ak.ari.lt</a></li>
-                    <li>E-Mail: <a href="mailto:ari@ari.lt">ari@ari.lt</a> (GPG: <a target="_blank" href="https://keys.openpgp.org/vks/v1/by-fingerprint/4FAD63E936B305906A6C4894A50D5B4B599AF8A2">4FAD63E936B305906A6C4894A50D5B4B599AF8A2</a>)</li>
+                    <li>GitHub: <a target="_blank" rel="noopener noreferrer" href="https://github.com/TruncatedDinoSour">TruncatedDinoSour</a></li>
+                    <li>GitHub organization: <a target="_blank" rel="noopener noreferrer" href="https://github.com/ari-lt">ari-lt</a> (<a href="mailto:org@ari.lt">org@ari.lt</a>)</li>
+                    <li>Matrix: <a target="_blank" rel="noopener noreferrer" href="https://matrix.to/#/@ari:ari.lt">@ari:ari.lt</a></li>
+                    <li>XMPP/Jabber: <a target="_blank" rel="noopener noreferrer" href="xmpp:ari@ari.lt">ari@ari.lt</a></li>
+                    <li>Fediverse: <a target="_blank" rel="noopener noreferrer" href="https://ak.ari.lt/ari">@ari@ak.ari.lt</a></li>
+                    <li>E-Mail: <a href="mailto:ari@ari.lt">ari@ari.lt</a> (GPG: <a target="_blank" rel="noopener noreferrer" href="https://keys.openpgp.org/vks/v1/by-fingerprint/4FAD63E936B305906A6C4894A50D5B4B599AF8A2">4FAD63E936B305906A6C4894A50D5B4B599AF8A2</a>)</li>
                 </ul>
             </li>
         </ul>
@@ -187,10 +187,10 @@
         <li><a href="{{ url_for("views.canary") }}">Warrant canary of Ari.lt</a></li>
         <li><a href="{{ url_for("views.casey") }}">Open letter to my best friend, Casey</a></li>
         <li><a href="{{ url_for("views.page", p="matrix") }}">Matrix homeserver guidelines and registration</a></li>
-        <li><a target="_blank" href="{{ url_for("views.mp") }}">Music playlist (YouTube)</a></li>
-        <li><a target="_blank" href="{{ url_for("views.dotfiles") }}">My dotfiles (redirect)</a></li>
-        <li><a target="_blank" href="{{ url_for("views.gh") }}">My main Git account (redirect)</a></li>
-        <li><a target="_blank" href="{{ url_for("views.lh") }}">Main Ari.lt organization (redirect)</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="{{ url_for("views.mp") }}">Music playlist (YouTube)</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="{{ url_for("views.dotfiles") }}">My dotfiles (redirect)</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="{{ url_for("views.gh") }}">My main Git account (redirect)</a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="{{ url_for("views.lh") }}">Main Ari.lt organization (redirect)</a></li>
     </ul>
     </div>
 
@@ -217,12 +217,12 @@
 <div class="mob">
     <h3>Contacts</h3>
     <ul>
-        <li>GitHub: <a target="_blank" href="https://github.com/TruncatedDinoSour">TruncatedDinoSour</a></li>
-        <li>GitHub organization: <a target="_blank" href="https://github.com/ari-lt">ari-lt</a> (<a href="mailto:org@ari.lt">org@ari.lt</a>)</li>
-        <li>Matrix: <a target="_blank" href="https://matrix.to/#/@ari:ari.lt">@ari:ari.lt</a></li>
-        <li>XMPP/Jabber: <a target="_blank" href="xmpp:ari@ari.lt">ari@ari.lt</a></li>
-        <li>Fediverse: <a target="_blank" href="https://ak.ari.lt/ari">@ari@ak.ari.lt</a></li>
-        <li>E-Mail: <a href="mailto:ari@ari.lt">ari@ari.lt</a> (GPG: <a target="_blank" href="https://keys.openpgp.org/vks/v1/by-fingerprint/4FAD63E936B305906A6C4894A50D5B4B599AF8A2">4FAD63E936B305906A6C4894A50D5B4B599AF8A2</a>)</li>
+        <li>GitHub: <a target="_blank" rel="noopener noreferrer" href="https://github.com/TruncatedDinoSour">TruncatedDinoSour</a></li>
+        <li>GitHub organization: <a target="_blank" rel="noopener noreferrer" href="https://github.com/ari-lt">ari-lt</a> (<a href="mailto:org@ari.lt">org@ari.lt</a>)</li>
+        <li>Matrix: <a target="_blank" rel="noopener noreferrer" href="https://matrix.to/#/@ari:ari.lt">@ari:ari.lt</a></li>
+        <li>XMPP/Jabber: <a target="_blank" rel="noopener noreferrer" href="xmpp:ari@ari.lt">ari@ari.lt</a></li>
+        <li>Fediverse: <a target="_blank" rel="noopener noreferrer" href="https://ak.ari.lt/ari">@ari@ak.ari.lt</a></li>
+        <li>E-Mail: <a href="mailto:ari@ari.lt">ari@ari.lt</a> (GPG: <a target="_blank" rel="noopener noreferrer" href="https://keys.openpgp.org/vks/v1/by-fingerprint/4FAD63E936B305906A6C4894A50D5B4B599AF8A2">4FAD63E936B305906A6C4894A50D5B4B599AF8A2</a>)</li>
     </ul>
 </div>
 
@@ -272,20 +272,20 @@
 <h3>Activity</h3>
 
 <ul>
-    <li>Source code of the website: <a target="_blank" href="{{ url_for("views.git") }}">{{ url_for("views.git") }}</a></li>
-    <li>Blog: <a target="_blank" href="https://blog.ari.lt/">blog.ari.lt</a></li>
-    <li>Matrix room: <a target="_blank" href="https://matrix.to/#/#root:ari.lt">#root:ari.lt</a></li>
-    <li>XMPP/Jabber room: <a target="_blank" href="xmpp:root@muc.ari.lt">root@muc.ari.lt</a></li>
+    <li>Source code of the website: <a target="_blank" rel="noopener noreferrer" href="{{ url_for("views.git") }}">{{ url_for("views.git") }}</a></li>
+    <li>Blog: <a target="_blank" rel="noopener noreferrer" href="https://blog.ari.lt/">blog.ari.lt</a></li>
+    <li>Matrix room: <a target="_blank" rel="noopener noreferrer" href="https://matrix.to/#/#root:ari.lt">#root:ari.lt</a></li>
+    <li>XMPP/Jabber room: <a target="_blank" rel="noopener noreferrer" href="xmpp:root@muc.ari.lt">root@muc.ari.lt</a></li>
 </ul>
 
 <h3>Projects</h3>
 
 <ul>
-    <li>Ari.lt - an open source website by ari archer: <a target="_blank" href="https://github.com/ari-lt">ari-lt GitHub organization</a></li>
-    <li>Baz - a fast, easy, simple and lightweight plugin manager for GNU bash: <a target="_blank" href="https://github.com/TruncatedDinoSour/baz">TruncatedDinoSour/baz</a></li>
-    <li>Kos - A simple SUID tool written in C++: <a target="_blank" href="https://github.com/TruncatedDinoSour/kos">TruncatedDinoSour/kos</a></li>
-    <li>Armour - password securing, management and generation library with a custom database format: <a target="_blank" href="https://github.com/TruncatedDinoSour/armour">TruncatedDinoSour/armour</a></li>
-    <li>Fa - stack based, reverse polish notation low-level programming language that transpiles down to assembly: <a target="_blank" href="https://github.com/TruncatedDinoSour/fa">TruncatedDinoSour/fa</a></li>
+    <li>Ari.lt - an open source website by ari archer: <a target="_blank" rel="noopener noreferrer" href="https://github.com/ari-lt">ari-lt GitHub organization</a></li>
+    <li>Baz - a fast, easy, simple and lightweight plugin manager for GNU bash: <a target="_blank" rel="noopener noreferrer" href="https://github.com/TruncatedDinoSour/baz">TruncatedDinoSour/baz</a></li>
+    <li>Kos - A simple SUID tool written in C++: <a target="_blank" rel="noopener noreferrer" href="https://github.com/TruncatedDinoSour/kos">TruncatedDinoSour/kos</a></li>
+    <li>Armour - password securing, management and generation library with a custom database format: <a target="_blank" rel="noopener noreferrer" href="https://github.com/TruncatedDinoSour/armour">TruncatedDinoSour/armour</a></li>
+    <li>Fa - stack based, reverse polish notation low-level programming language that transpiles down to assembly: <a target="_blank" rel="noopener noreferrer" href="https://github.com/TruncatedDinoSour/fa">TruncatedDinoSour/fa</a></li>
 </ul>
 
 <p>
@@ -298,8 +298,8 @@
 <h3>Support</h3>
 
 <ul>
-    <li>Monero wallet address: <a target="_blank" href="{{ url_for("views.xmr") }}">{{ url_for("views.xmr") | escape }}</a></li>
-    <li>Bitcoin wallet address: <a target="_blank" href="{{ url_for("views.btc") }}">{{ url_for("views.btc") | escape }}</a></li>
+    <li>Monero wallet address: <a target="_blank" rel="noopener noreferrer" href="{{ url_for("views.xmr") }}">{{ url_for("views.xmr") | escape }}</a></li>
+    <li>Bitcoin wallet address: <a target="_blank" rel="noopener noreferrer" href="{{ url_for("views.btc") }}">{{ url_for("views.btc") | escape }}</a></li>
 </ul>
 
 <h2 id="staff"><a href="#staff">#</a> Staff</h2>
@@ -320,22 +320,22 @@
         <tr>
             <td>LDA</td>
             <td>Moderates Matrix.</td>
-            <td><a href="https://freetards.xyz/" target="_blank">freetards.xyz</a></td>
+            <td><a href="https://freetards.xyz/" target="_blank" rel="noopener noreferrer">freetards.xyz</a></td>
         </tr>
         <tr>
             <td>Jjj (Joseph)</td>
             <td>Moderates Matrix and XMPP/Jabber, helps with Email things.</td>
-            <td><a href="https://pain.agency/" target="_blank">pain.agency</a></td>
+            <td><a href="https://pain.agency/" target="_blank" rel="noopener noreferrer">pain.agency</a></td>
         </tr>
         <tr>
             <td>Zayd</td>
             <td>Administrates Akkoma.</td>
-            <td><a href="https://wanderer.envs.net/" target="_blank">wanderer.envs.net</a></td>
+            <td><a href="https://wanderer.envs.net/" target="_blank" rel="noopener noreferrer">wanderer.envs.net</a></td>
         </tr>
         <tr>
             <td>Sulian/Morguldir</td>
             <td>Moderates Matrix.</td>
-            <td><a href="https://sulian.eu/" target="_blank">sulian.eu</a></td>
+            <td><a href="https://sulian.eu/" target="_blank" rel="noopener noreferrer">sulian.eu</a></td>
         </tr>
     </table>
     </div>
@@ -365,73 +365,73 @@
         </tr>
         <tr>
             <td>Matrix homeserver</td>
-            <td>Semi-open registration, follow the process described <a href="{{ url_for('views.page', p='matrix') }}" target="_blank">here</a>.</td>
-            <td><a href="https://matrix.ari.lt/" target="_blank">matrix.ari.lt</a></td>
+            <td>Semi-open registration, follow the process described <a href="{{ url_for('views.page', p='matrix') }}" target="_blank" rel="noopener noreferrer">here</a>.</td>
+            <td><a href="https://matrix.ari.lt/" target="_blank" rel="noopener noreferrer">matrix.ari.lt</a></td>
         </tr>
         <tr>
             <td>XMPP/Jabber server</td>
-            <td>Semi-open registration, follow the process described <a href="{{ url_for('views.page', p='xmpp') }}" target="_blank">here</a>.</td>
-            <td><a href="{{ url_for("views.lh", _="xmpp") }}" target="_blank">lh/xmpp</a></td>
+            <td>Semi-open registration, follow the process described <a href="{{ url_for('views.page', p='xmpp') }}" target="_blank" rel="noopener noreferrer">here</a>.</td>
+            <td><a href="{{ url_for("views.lh", _="xmpp") }}" target="_blank" rel="noopener noreferrer">lh/xmpp</a></td>
         </tr>
         <tr>
             <td>Forgejo git forge instance</td>
             <td>Open registration.</td>
-            <td><a href="https://git.ari.lt/" target="_blank">git.ari.lt</a></td>
+            <td><a href="https://git.ari.lt/" target="_blank" rel="noopener noreferrer">git.ari.lt</a></td>
         </tr>
         <tr>
             <td>SearXNG instance</td>
             <td>SearXNG meta-search-engine instance.</td>
-            <td><a href="https://searx.ari.lt/" target="_blank">searx.ari.lt</a></td>
+            <td><a href="https://searx.ari.lt/" target="_blank" rel="noopener noreferrer">searx.ari.lt</a></td>
         </tr>
         <tr>
             <td>CryptPad instance</td>
             <td>Open registration, CryptPad: private office suite software.</td>
-            <td><a href="https://pad.ari.lt/" target="_blank">pad.ari.lt</a></td>
+            <td><a href="https://pad.ari.lt/" target="_blank" rel="noopener noreferrer">pad.ari.lt</a></td>
         </tr>
         <tr>
-            <td>Email server hosting <a href="https://mailcow.email/" target="_blank">Mailcow</a></td>
+            <td>Email server hosting <a href="https://mailcow.email/" target="_blank" rel="noopener noreferrer">Mailcow</a></td>
             <td>Contact <a href="mailto:ari@ari.lt">ari@ari.lt</a> for custom domains (aggressive policy)</td>
-            <td><a href="https://mail.ari.lt/" target="_blank">mail.ari.lt</a> (<a href="https://mail.ari.lt/signup" target="_blank">register here</a>)</td>
+            <td><a href="https://mail.ari.lt/" target="_blank" rel="noopener noreferrer">mail.ari.lt</a> (<a href="https://mail.ari.lt/signup" target="_blank" rel="noopener noreferrer">register here</a>)</td>
         </tr>
         <tr>
             <td>Roundcube webmail</td>
             <td>Only for ari.lt users</td>
-            <td><a href="https://rc.ari.lt/" target="_blank">rc.ari.lt</a></td>
+            <td><a href="https://rc.ari.lt/" target="_blank" rel="noopener noreferrer">rc.ari.lt</a></td>
         </tr>
         <tr>
             <td>Akkoma fediverse instance</td>
             <td>Open registration.</td>
-            <td><a href="https://ak.ari.lt/" target="_blank">ak.ari.lt</a></td>
+            <td><a href="https://ak.ari.lt/" target="_blank" rel="noopener noreferrer">ak.ari.lt</a></td>
         </tr>
         <tr>
             <td>Vikunja instance</td>
             <td>Free and open source todo app. Open registration.</td>
-            <td><a href="https://vi.ari.lt/" target="_blank">vi.ari.lt</a></td>
+            <td><a href="https://vi.ari.lt/" target="_blank" rel="noopener noreferrer">vi.ari.lt</a></td>
         </tr>
         <tr>
             <td>SchildiChat &amp; Cinny Matrix web clients</td>
             <td>Web clients for Matrix.</td>
-            <td><a href="https://schildi.ari.lt/" target="_blank">schildi.ari.lt</a> &amp; <a href="https://cinny.ari.lt/" target="_blank">cinny.ari.lt</a></td>
+            <td><a href="https://schildi.ari.lt/" target="_blank" rel="noopener noreferrer">schildi.ari.lt</a> &amp; <a href="https://cinny.ari.lt/" target="_blank" rel="noopener noreferrer">cinny.ari.lt</a></td>
         </tr>
         <tr>
             <td>PrivateBin instance</td>
             <td>Private public encrypted pastebin.</td>
-            <td><a href="https://pb.ari.lt/" target="_blank">pb.ari.lt</a></td>
+            <td><a href="https://pb.ari.lt/" target="_blank" rel="noopener noreferrer">pb.ari.lt</a></td>
         </tr>
         <tr>
             <td>Private PocketBase instance</td>
-            <td>Private database storage for <a href="https://github.com/TheCubiq/" target="_blank">Github: TheCubiq</a></td>
-            <td><a href="https://db.cubiq.dev/" target="_blank">db.cubiq.dev</a></td>
+            <td>Private database storage for <a href="https://github.com/TheCubiq/" target="_blank" rel="noopener noreferrer">Github: TheCubiq</a></td>
+            <td><a href="https://db.cubiq.dev/" target="_blank" rel="noopener noreferrer">db.cubiq.dev</a></td>
         </tr>
         <tr>
             <td>t1nklas.lt's email</td>
             <td>Custom domain on ari-web email</td>
-            <td><a href="https://t1nklas.lt/" target="_blank">t1nklas.lt</a></td>
+            <td><a href="https://t1nklas.lt/" target="_blank" rel="noopener noreferrer">t1nklas.lt</a></td>
         </tr>
         <tr>
-            <td>Forgejo instance for <a href="https://kappach.at/" target="_blank">kappach.at</a></td>
+            <td>Forgejo instance for <a href="https://kappach.at/" target="_blank" rel="noopener noreferrer">kappach.at</a></td>
             <td>Git forge instance of KappaChat - An extensible Matrix client written in C.</td>
-            <td><a href="https://git.kappach.at/" target="_blank">git.kappach.at</a></td>
+            <td><a href="https://git.kappach.at/" target="_blank" rel="noopener noreferrer">git.kappach.at</a></td>
         </tr>
     </table>
 </div>
@@ -467,7 +467,7 @@
   </div>
 
   <div class="form-group">
-    <label for="comment">Comment (<a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">markdown</a>):</label>
+    <label for="comment">Comment (<a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank" rel="noopener noreferrer">markdown</a>):</label>
     <textarea required type="text" id="comment" name="comment" placeholder="Hello! I like your website - &lt;https://ari.lt/&gt;."></textarea>
   </div>
 
