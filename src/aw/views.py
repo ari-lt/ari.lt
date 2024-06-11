@@ -283,32 +283,20 @@ def counter() -> flask.Response:
 @views.get("/badge.png")
 def badge() -> Response:
     """Website badge"""
-    r: Response = flask.redirect(
-        flask.url_for(
-            "static",
-            filename="badges/badge.png",
-        )
-    )
 
+    r: Response = flask.send_from_directory("static/badges", "badge.png")
     r.headers["Access-Control-Allow-Origin"] = "*"
     r.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS, HEAD"
-
     return r
 
 
 @views.get("/badge-yellow.png")
 def badge_yellow() -> Response:
     """Website badge"""
-    r: Response = flask.redirect(
-        flask.url_for(
-            "static",
-            filename="badges/badge-yellow.png",
-        )
-    )
 
+    r: Response = flask.send_from_directory("static/badges", "badge-yellow.png")
     r.headers["Access-Control-Allow-Origin"] = "*"
     r.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS, HEAD"
-
     return r
 
 
@@ -316,16 +304,9 @@ def badge_yellow() -> Response:
 def badge_txt() -> Response:
     """Website badge"""
 
-    r: Response = flask.redirect(
-        flask.url_for(
-            "static",
-            filename="badges/badge.txt",
-        )
-    )
-
+    r: Response = flask.send_from_directory("static/badges", "badge.txt")
     r.headers["Access-Control-Allow-Origin"] = "*"
     r.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS, HEAD"
-
     return r
 
 
