@@ -108,6 +108,15 @@ a {
     text-decoration: none;
 }
 
+input[type=checkbox] {
+    cursor: pointer;
+}
+
+textarea {
+    cursor: text;
+}
+
+
 a:hover {
     text-decoration: underline;
 }

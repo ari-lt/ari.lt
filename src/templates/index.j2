@@ -131,7 +131,7 @@
 
     <div>
         <div align="center">
-            <img src="{{ url_for("static", filename="svg/ari.svg") }}" alt="A illustration (sketch) of Ari Archer with medium length red-black split dyed hair" width="196px" />
+            <img src="{{ url_for("static", filename="svg/ari.svg") }}" alt="A illustration (sketch) of Ari Archer with medium length red-black split dyed hair" width="196" />
         </div>
 
         <ul>
@@ -234,31 +234,35 @@
 
 <ul>
     <li>
-        Normal: <a href="https://ari.lt/"> <img src="{{ url_for("views.badge") }}" loading="lazy" alt="ari-web badge" height="31px" width="88px" /> </a>
+        Normal: <a href="https://ari.lt/" title="ari-web badge" aria-label="Visit ari-web" rel="noopener noreferrer"> <img src="{{ url_for("views.badge") }}" loading="lazy" alt="ari-web badge" height="31" width="88" role="presentation" /> </a>
         <ul>
             <li>
-                <b>Embed:</b> <textarea style="width:50%;min-height:3rem;resize:vertical" disabled>&lt;a href="https://ari.lt/"&gt; &lt;img src="https://ari.lt{{ url_for("views.badge") }}" loading="lazy" alt="ari-web badge" height="31px" width="88px" /&gt; &lt;/a&gt;</textarea>
+                <b>Embed:</b> <textarea style="width:50%;min-height:3rem;resize:vertical" disabled>&lt;a href="https://ari.lt/" title="ari-web badge" aria-label="Visit ari-web" rel="noopener noreferrer"&gt; &lt;img src="https://ari.lt{{ url_for("views.badge") }}" loading="lazy" alt="ari-web badge" height="31" width="88" role="presentation" /&gt; &lt;/a&gt;</textarea>
             </li>
         </ul>
     </li>
 
     <li>
-        Yellow: <a href="https://ari.lt/"> <img src="{{ url_for("views.badge_yellow") }}" loading="lazy" alt="ari-web badge" height="31px" width="88px" /> </a>
+        Yellow: <a href="https://ari.lt/" title="ari-web badge" aria-label="Visit ari-web" rel="noopener noreferrer"> <img src="{{ url_for("views.badge_yellow") }}" loading="lazy" alt="ari-web badge" height="31" width="88" role="presentation" /> </a>
         <ul>
             <li>
-                <b>Embed:</b> <textarea style="width:50%;min-height:3rem;resize:vertical" disabled>&lt;a href="https://ari.lt/"&gt; &lt;img src="https://ari.lt{{ url_for("views.badge_yellow") }}" loading="lazy" alt="ari-web badge" height="31px" width="88px" /&gt; &lt;/a&gt;</textarea>
+                <b>Embed:</b> <textarea style="width:50%;min-height:3rem;resize:vertical" disabled>&lt;a href="https://ari.lt/" title="ari-web badge" aria-label="Visit ari-web" rel="noopener noreferrer"&gt; &lt;img src="https://ari.lt{{ url_for("views.badge_yellow") }}" loading="lazy" alt="ari-web badge" height="31" width="88" role="presentation" /&gt; &lt;/a&gt;</textarea>
             </li>
         </ul>
+    </li>
+
+    <li>
+        Text: <a href="{{ url_for("views.badge_txt") }}">badge.txt</a>.
     </li>
 </ul>
 
 <p>Also, friends:</p>
 
 <ul>
-    <li>FSKY: <a href="https://fsky.io/"> <img src="https://fsky.io/badge.png" loading="lazy" alt="FSKY badge" height="31px" width="88px" /> </a></li>
-    <li>LDA: <a href="https://freetards.xyz/"> <img src="https://freetards.xyz/88x31.png" loading="lazy" alt="Freetards badge" height="31px" width="88px" /> </a></li>
-    <li>Hydrogen: <a href="https://h2.gay/"> <img src="https://h2.gay/images/88x31.gif" loading="lazy" alt="H2.gay's badge" height="31px" width="88px" /> </a></li>
-    <li>DOSKEL: <a href="https://doskel.net/"> <img src="https://doskel.net/img/logo.png" loading="lazy" alt="Doskel.net's badge" height="31px" width="88px" /> </a></li>
+    <li>FSKY: <a href="https://fsky.io/" title="FSKY badge" aria-label="Visit FSKY" rel="noopener noreferrer"> <img src="https://fsky.io/badge.png" loading="lazy" alt="FSKY badge" height="31" width="88" role="presentation" /> </a></li>
+    <li>LDA: <a href="https://freetards.xyz/" title="LDA's badge" aria-label="Visit LDA's website" rel="noopener noreferrer"> <img src="https://freetards.xyz/88x31.png" loading="lazy" alt="Freetards badge" height="31" width="88" role="presentation" /> </a></li>
+    <li>Hydrogen: <a href="https://h2.gay/" title="Hydrogen's badge" aria-label="Visit Hydrogen's website" rel="noopener noreferrer"> <img src="https://h2.gay/images/88x31.gif" loading="lazy" alt="H2.gay's badge" height="31" width="88" role="presentation" /> </a></li>
+    <li>DOSKEL: <a href="https://doskel.net/" title="DOSKEL's badge" aria-label="Visit DOSKEL's website" rel="noopener noreferrer"> <img src="https://doskel.net/img/logo.png" loading="lazy" alt="Doskel.net's badge" height="31" width="88" role="presentation" /> </a></li>
 </ul>
 
 <p>
@@ -468,7 +472,7 @@
   </div>
 
   <div class="captcha">
-    <img loading="lazy" width="240px" height="90" src="{{ url_for("views.captcha") }}?new" onclick="this.src=this.src+Math.floor(1000*Math.random())" alt="An image CAPTCHA" />
+    <img loading="lazy" width="240" height="90" src="{{ url_for("views.captcha") }}?new" onclick="this.src=this.src+Math.floor(1000*Math.random())" alt="An image CAPTCHA" />
     <i>Click the image above to reload and get a new CAPTCHA.</i>
   </div>
 
@@ -492,7 +496,7 @@
 <div id="comments">
   {% for comment in comments %}
   <div id="gb-{{ comment.id }}">
-    <p><a href="#gb-{{ comment.id }}">#{{ comment.id }}:</a> <span>{{ comment.name | escape }}</span> {% if comment.website %}(<a href="{{ comment.website }}" target="_blank">{{ comment.website | escape }}</a>){% endif %} &lt;<i><a href="mailto:" style="color:#aaa" onclick="this.innerText=rc4('{{ b64encode(comment.email_ct).decode() }}','{{ b64encode(comment.key).decode() }}');this.href+=this.innerText;this.onclick=null;this.style='';return!!0">show email</a></i>&gt; at <time>{{ comment.posted }} UTC</time> says...</p>
+    <p><a href="#gb-{{ comment.id }}">#{{ comment.id }}:</a> <span>{{ comment.name | escape }}</span> {% if comment.website %}(<a href="{{ comment.website }}" rel="noopener noreferrer" target="_blank">{{ comment.website | escape }}</a>){% endif %} &lt;<i><a href="mailto:" style="color:#aaa" onclick="this.innerText=rc4('{{ b64encode(comment.email_ct).decode() }}','{{ b64encode(comment.key).decode() }}');this.href+=this.innerText;this.onclick=null;this.style='';return!!0">show email</a></i>&gt; at <time>{{ comment.posted }} UTC</time> says...</p>
     <div>{{ comment.comment | markdown }}</div>
   </div>{% endfor %}
 </div>

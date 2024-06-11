@@ -312,6 +312,23 @@ def badge_yellow() -> Response:
     return r
 
 
+@views.get("/badge.txt")
+def badge_txt() -> Response:
+    """Website badge"""
+
+    r: Response = flask.redirect(
+        flask.url_for(
+            "static",
+            filename="badges/badge.txt",
+        )
+    )
+
+    r.headers["Access-Control-Allow-Origin"] = "*"
+    r.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS, HEAD"
+
+    return r
+
+
 @views.get("/captcha.png")
 def captcha() -> Response:
     """CAPTCHA"""

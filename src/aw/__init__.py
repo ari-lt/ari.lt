@@ -4,6 +4,7 @@
 
 import datetime
 import os
+import re
 import sys
 from base64 import b64encode
 from functools import lru_cache
@@ -20,6 +21,56 @@ from . import util
 def min_css(css: str) -> str:
     """minify css"""
     return web_mini.css.minify_css(css)
+
+
+def assign_http(app: flask.Flask) -> flask.Flask:
+    """assign http file stuff"""
+
+    # robots
+
+    @app.route("/robots.txt", methods=["GET", "POST"])
+    def __robots__() -> flask.Response:
+        """favicon"""
+
+        robots: str = (
+            f"User-agent: *\nSitemap: {app.config['PREFERRED_URL_SCHEME']}://{app.config['DOMAIN']}/sitemap.xml\n"
+        )
+
+        return flask.Response(robots, mimetype="text/plain")
+
+    # sitemap
+
+    rule: flask.Rule
+
+    pat: re.Pattern[str] = re.compile(r"<.+?:(.+?)>")
+
+    sitemap: str = (
+        '<?xml version="1.0" encoding="UTF-8"?>\
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+    )
+
+    def surl(loc: str) -> str:
+        """sitemap url"""
+
+        u: str = "<url>"
+
+        u += f'<loc>{app.config["PREFERRED_URL_SCHEME"]}://{app.config["DOMAIN"]}{loc}</loc>'
+        u += "<priority>1.0</priority>"
+
+        return u + "</url>"
+
+    sitemap += surl("/robots.txt")
+
+    for rule in app.url_map.iter_rules():
+        url: str = pat.sub(r"\1", rule.rule)
+        sitemap += surl(url)
+
+    @app.route("/sitemap.xml", methods=["GET", "POST"])
+    def __sitemap__() -> flask.Response:
+        """sitemap"""
+        return flask.Response(sitemap + "</urlset>", mimetype="application/xml")
+
+    return app
 
 
 def create_app(name: str) -> flask.Flask:
@@ -125,4 +176,4 @@ def create_app(name: str) -> flask.Flask:
             "b64encode": b64encode,
         }
 
-    return app
+    return assign_http(app)

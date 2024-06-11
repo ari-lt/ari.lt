@@ -41,8 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const connection_radius = 192;
 
     let mouse = {
-        x: null,
-        y: null,
+        x: -1,
+        y: -1,
     };
 
     let animation_frame_id = null;
@@ -56,9 +56,6 @@ document.addEventListener("DOMContentLoaded", function () {
             mouse.y = e.clientY;
         }
     }
-
-    window.addEventListener("mousemove", update_pointer);
-    window.addEventListener("touchmove", update_pointer);
 
     function debounce(func, wait, immediate) {
         let timeout;
@@ -76,16 +73,20 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     }
 
-    function handle_resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+    window.addEventListener("mousemove", update_pointer);
+    window.addEventListener("touchmove", update_pointer);
 
-        cancelAnimationFrame(animation_frame_id);
-        init();
-        animate();
-    }
+    window.addEventListener(
+        "resize",
+        debounce(() => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
 
-    window.addEventListener("resize", debounce(handle_resize, 250));
+            cancelAnimationFrame(animation_frame_id);
+            init();
+            animate();
+        }, 250),
+    );
 
     class Particle {
         constructor() {
