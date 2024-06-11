@@ -220,7 +220,7 @@ def manifest() -> t.Any:
 @views.get("/page/<path:p>")
 def page(p: str) -> str:
     """Page renderer"""
-    return p
+    return "Unavailable for migration."
 
 
 @views.get("/LICENSE", alias=True)
@@ -339,9 +339,9 @@ def casey():
 
 
 @views.get("/page/matrix", alias=True)
-@views.get("/matrix")
+@views.get("/matrix", alias=True)
 def matrix():
-    """Matrix homeserver guidelines and Registration"""
+    """Open letter to my best friend"""
     return "Unavailable due to migration reasons."
 
 

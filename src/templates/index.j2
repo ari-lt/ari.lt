@@ -152,6 +152,7 @@
                     <li>GitHub: <a target="_blank" href="https://github.com/TruncatedDinoSour">TruncatedDinoSour</a></li>
                     <li>GitHub organization: <a target="_blank" href="https://github.com/ari-lt">ari-lt</a> (<a href="mailto:org@ari.lt">org@ari.lt</a>)</li>
                     <li>Matrix: <a target="_blank" href="https://matrix.to/#/@ari:ari.lt">@ari:ari.lt</a></li>
+                    <li>XMPP/Jabber: <a target="_blank" href="xmpp:ari@ari.lt">ari@ari.lt</a></li>
                     <li>Fediverse: <a target="_blank" href="https://ak.ari.lt/ari">@ari@ak.ari.lt</a></li>
                     <li>E-Mail: <a href="mailto:ari@ari.lt">ari@ari.lt</a> (GPG: <a target="_blank" href="https://keys.openpgp.org/vks/v1/by-fingerprint/4FAD63E936B305906A6C4894A50D5B4B599AF8A2">4FAD63E936B305906A6C4894A50D5B4B599AF8A2</a>)</li>
                 </ul>
@@ -185,7 +186,7 @@
         <li><a href="/">The home page of Ari.lt</a></li>
         <li><a href="{{ url_for("views.canary") }}">Warrant canary of Ari.lt</a></li>
         <li><a href="{{ url_for("views.casey") }}">Open letter to my best friend, Casey</a></li>
-        <li><a href="{{ url_for("views.matrix") }}">Matrix homeserver guidelines and registration</a></li>
+        <li><a href="{{ url_for("views.page", p="matrix") }}">Matrix homeserver guidelines and registration</a></li>
         <li><a target="_blank" href="{{ url_for("views.mp") }}">Music playlist (YouTube)</a></li>
         <li><a target="_blank" href="{{ url_for("views.dotfiles") }}">My dotfiles (redirect)</a></li>
         <li><a target="_blank" href="{{ url_for("views.gh") }}">My main Git account (redirect)</a></li>
@@ -219,6 +220,7 @@
         <li>GitHub: <a target="_blank" href="https://github.com/TruncatedDinoSour">TruncatedDinoSour</a></li>
         <li>GitHub organization: <a target="_blank" href="https://github.com/ari-lt">ari-lt</a> (<a href="mailto:org@ari.lt">org@ari.lt</a>)</li>
         <li>Matrix: <a target="_blank" href="https://matrix.to/#/@ari:ari.lt">@ari:ari.lt</a></li>
+        <li>XMPP/Jabber: <a target="_blank" href="xmpp:ari@ari.lt">ari@ari.lt</a></li>
         <li>Fediverse: <a target="_blank" href="https://ak.ari.lt/ari">@ari@ak.ari.lt</a></li>
         <li>E-Mail: <a href="mailto:ari@ari.lt">ari@ari.lt</a> (GPG: <a target="_blank" href="https://keys.openpgp.org/vks/v1/by-fingerprint/4FAD63E936B305906A6C4894A50D5B4B599AF8A2">4FAD63E936B305906A6C4894A50D5B4B599AF8A2</a>)</li>
     </ul>
@@ -237,6 +239,7 @@
     <li>Source code of the website: <a target="_blank" href="{{ url_for("views.git") }}">{{ url_for("views.git") }}</a></li>
     <li>Blog: <a target="_blank" href="https://blog.ari.lt/">blog.ari.lt</a></li>
     <li>Matrix room: <a target="_blank" href="https://matrix.to/#/#root:ari.lt">#root:ari.lt</a></li>
+    <li>XMPP/Jabber room: <a target="_blank" href="xmpp:root@muc.ari.lt">root@muc.ari.lt</a></li>
 </ul>
 
 <h3>Projects</h3>
@@ -285,7 +288,7 @@
         </tr>
         <tr>
             <td>Jjj (Joseph)</td>
-            <td>Moderates Matrix, helps with Email things.</td>
+            <td>Moderates Matrix and XMPP/Jabber, helps with Email things.</td>
             <td><a href="https://pain.agency/" target="_blank">pain.agency</a></td>
         </tr>
         <tr>
@@ -328,6 +331,11 @@
             <td>Matrix homeserver</td>
             <td>Semi-open registration, follow the process described <a href="{{ url_for('views.page', p='matrix') }}" target="_blank">here</a>.</td>
             <td><a href="https://matrix.ari.lt/" target="_blank">matrix.ari.lt</a></td>
+        </tr>
+        <tr>
+            <td>XMPP/Jabber server</td>
+            <td>Semi-open registration, follow the process described <a href="{{ url_for('views.page', p='xmpp') }}" target="_blank">here</a>.</td>
+            <td><a href="{{ url_for("views.lh", _="xmpp") }}" target="_blank">lh/xmpp</a></td>
         </tr>
         <tr>
             <td>Forgejo git forge instance</td>
