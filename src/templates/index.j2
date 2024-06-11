@@ -446,7 +446,7 @@
 <div id="comments">
   {% for comment in comments %}
   <div id="gb-{{ comment.id }}">
-    <p><a href="#gb-{{ comment.id }}">#{{ comment.id }}:</a> <span>{{ comment.name | escape }}</span> {% if comment.website %} (<a href="{{ comment.website }}" rel="noopener noreferrer" target="_blank">{{ comment.website | escape }}</a>) {% endif %} &lt;<i><a href="mailto:" style="color:#aaa" onclick="this.innerText=rc4('{{ b64encode(comment.email_ct).decode() }}','{{ b64encode(comment.key).decode() }}');this.href+=this.innerText;this.onclick=null;this.style='';return false">show email</a></i>&gt; at <time>{{ comment.posted }} UTC</time> says...</p>
+    <p><a href="#gb-{{ comment.id }}">#{{ comment.id }}:</a> <span>{{ comment.name | escape }}</span> {% if comment.website %}(<a href="{{ comment.website }}" target="_blank">{{ comment.website | escape }}</a>){% endif %} &lt;<i><a href="mailto:" style="color:#aaa" onclick="this.innerText=rc4('{{ b64encode(comment.email_ct).decode() }}','{{ b64encode(comment.key).decode() }}');this.href+=this.innerText;this.onclick=null;this.style='';return !!0">show email</a></i>&gt; at <time>{{ comment.posted }} UTC</time> says...</p>
     <div>{{ comment.comment | markdown }}</div>
   </div>{% endfor %}
 </div>
