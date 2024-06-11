@@ -11,6 +11,7 @@ import validators
 from werkzeug.wrappers import Response
 
 from . import email, models, util
+from .limiter import limiter
 from .routing import Bp
 
 views: Bp = Bp("views", __name__)
@@ -85,7 +86,7 @@ def confirm(comment_id: int, token: str):
         f"""New comment on the guestbook for you to check out.
 
 
-URL: {flask.url_for("views.index")}#{comment.id}
+ID: #{comment.id}
 Name: {comment.name}
 Website: {comment.website}
 Comment:
@@ -122,6 +123,10 @@ def delete(comment_id: int, token: str):
 
 
 @views.post("/")
+@limiter.limit("3 per day")  # Limit by IP
+@limiter.limit(
+    "3 per day", key_func=lambda: str(flask.request.form.get("email"))
+)  # Limit by email
 def comment():
     """publish a comment"""
 

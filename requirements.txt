@@ -8,3 +8,4 @@ jinja2
 MarkupSafe
 bleach
 web-mini
+flask-limiter
