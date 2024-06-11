@@ -37,7 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let num_particles;
 
     const particle_size = 2;
-    const avoidance_radius = 48;
+    const avoidance_radius = 64;
+    const connection_radius = 192;
 
     let mouse = {
         x: null,
@@ -100,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
             };
         }
 
-        update(particles) {
+        update() {
             if (this.x <= 0 || this.x >= canvas.width) {
                 this.velocity.x *= -1;
                 this.x = Math.max(Math.min(this.x, canvas.width), 0);
@@ -120,35 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.velocity.y += (dy / distance) * 0.5;
             }
 
-            particles.forEach((p) => {
-                if (p !== this) {
-                    let dx = p.x - this.x;
-                    let dy = p.y - this.y;
-                    let distance = Math.sqrt(dx * dx + dy * dy);
-                    if (distance < 2 * particle_size && distance > 0) {
-                        let collision_normal = {
-                            x: dx / distance,
-                            y: dy / distance,
-                        };
-                        let relative_velocity = {
-                            x: this.velocity.x - p.velocity.x,
-                            y: this.velocity.y - p.velocity.y,
-                        };
-                        let speed =
-                            relative_velocity.x * collision_normal.x +
-                            relative_velocity.y * collision_normal.y;
-
-                        if (speed < 0) {
-                            let impulse = (2 * speed) / 2;
-                            this.velocity.x -= impulse * collision_normal.x;
-                            this.velocity.y -= impulse * collision_normal.y;
-                            p.velocity.x += impulse * collision_normal.x;
-                            p.velocity.y += impulse * collision_normal.y;
-                        }
-                    }
-                }
-            });
-
             this.x += this.velocity.x;
             this.y += this.velocity.y;
         }
@@ -159,6 +131,26 @@ document.addEventListener("DOMContentLoaded", function () {
             ctx.fillStyle = "rgba(255, 81, 71, 0.5)";
             ctx.fill();
         }
+    }
+
+    function draw_connections() {
+        particles.forEach((particle, idx) => {
+            for (let i = idx + 1; i < particles.length; i++) {
+                let other_particle = particles[i];
+                let dx = other_particle.x - particle.x;
+                let dy = other_particle.y - particle.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < connection_radius) {
+                    ctx.strokeStyle = `rgba(255, 81, 71, ${1 - distance / connection_radius})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.beginPath();
+                    ctx.moveTo(particle.x, particle.y);
+                    ctx.lineTo(other_particle.x, other_particle.y);
+                    ctx.stroke();
+                }
+            }
+        });
     }
 
     function init() {
@@ -175,9 +167,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         particles.forEach((particle) => {
-            particle.update(particles);
+            particle.update();
             particle.draw();
         });
+        draw_connections();
         animation_frame_id = requestAnimationFrame(animate);
     }
 
