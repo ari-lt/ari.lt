@@ -34,6 +34,14 @@ html {
     background-color: #090909;
 }
 
+textarea {
+    background-color: #111;
+    border: none;
+    padding: 0.5em;
+    resize: vertical;
+    min-height: 3em;
+}
+
 body {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -85,7 +93,8 @@ main {
     padding: 1em;
 }
 
-footer, footer * {
+footer,
+footer * {
     text-align: center;
     opacity: 0.8;
 }
@@ -94,7 +103,8 @@ li {
     margin: 0.5em 0;
 }
 
-table, table * {
+table,
+table * {
     text-align: justify;
 }
 
@@ -108,7 +118,7 @@ a {
     text-decoration: none;
 }
 
-input[type=checkbox] {
+input[type="checkbox"] {
     cursor: pointer;
 }
 
