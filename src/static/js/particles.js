@@ -22,6 +22,21 @@
 
 "use strict";
 
+function debounce(func, wait, immediate) {
+    let timeout;
+    return function () {
+        let context = this,
+            args = arguments;
+        let later = function () {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        let call_now = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (call_now) func.apply(context, args);
+    };
+}
 document.addEventListener("DOMContentLoaded", function () {
     const canvas = document.createElement("canvas");
     canvas.id = "particles";
@@ -33,12 +48,15 @@ document.addEventListener("DOMContentLoaded", function () {
     canvas.height = window.innerHeight;
 
     let particles = [];
-    const particle_density = 2e-5;
+    const particle_density = 4e-5;
     let num_particles;
 
     const particle_size = 2;
     const avoidance_radius = 64;
     const connection_radius = 192;
+    const damping = 0.993;
+    const collision_damping = 0.8;
+    const drift_strength = 0.1;
 
     let mouse = {
         x: -1,
@@ -55,22 +73,6 @@ document.addEventListener("DOMContentLoaded", function () {
             mouse.x = e.clientX;
             mouse.y = e.clientY;
         }
-    }
-
-    function debounce(func, wait, immediate) {
-        let timeout;
-        return function () {
-            let context = this,
-                args = arguments;
-            let later = function () {
-                timeout = null;
-                if (!immediate) func.apply(context, args);
-            };
-            let call_now = immediate && !timeout;
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-            if (call_now) func.apply(context, args);
-        };
     }
 
     window.addEventListener("mousemove", update_pointer);
@@ -97,19 +99,22 @@ document.addEventListener("DOMContentLoaded", function () {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
             this.velocity = {
-                x: (Math.random() - 0.5) * 2,
-                y: (Math.random() - 0.5) * 2,
+                x: (Math.random() - 0.5) * 4,
+                y: (Math.random() - 0.5) * 4,
             };
         }
 
         update() {
+            this.velocity.x += (Math.random() - 0.5) * drift_strength;
+            this.velocity.y += (Math.random() - 0.5) * drift_strength;
+
             if (this.x <= 0 || this.x >= canvas.width) {
-                this.velocity.x *= -1;
+                this.velocity.x *= -collision_damping;
                 this.x = Math.max(Math.min(this.x, canvas.width), 0);
             }
 
             if (this.y <= 0 || this.y >= canvas.height) {
-                this.velocity.y *= -1;
+                this.velocity.y *= -collision_damping;
                 this.y = Math.max(Math.min(this.y, canvas.height), 0);
             }
 
@@ -118,9 +123,12 @@ document.addEventListener("DOMContentLoaded", function () {
             let distance = Math.sqrt(dx * dx + dy * dy);
 
             if (distance < avoidance_radius && distance > 0) {
-                this.velocity.x += (dx / distance) * 0.5;
-                this.velocity.y += (dy / distance) * 0.5;
+                this.velocity.x -= (dx / distance) * 0.5;
+                this.velocity.y -= (dy / distance) * 0.5;
             }
+
+            this.velocity.x *= damping;
+            this.velocity.y *= damping;
 
             this.x += this.velocity.x;
             this.y += this.velocity.y;
