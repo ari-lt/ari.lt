@@ -260,7 +260,8 @@ def favicon() -> Response:
 @views.get("/counter.svg")
 def counter() -> flask.Response:
     """counter"""
-    return flask.Response(
+
+    r = flask.Response(
         util.text2svg(
             text=str(models.Counter.first().inc().count),
             fill=flask.request.args.get("fill", "#fff"),
@@ -272,6 +273,15 @@ def counter() -> flask.Response:
         ),
         mimetype="image/svg+xml",
     )
+
+    r.headers["Access-Control-Allow-Origin"] = "*"
+    r.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS, HEAD"
+    r.headers["Expires"] = "Thu, 01 Jan 1970 00:00:00 GMT"
+    r.headers["Cache-Control"] = (
+        "max-age=0, no-cache, must-revalidate, proxy-revalidate"
+    )
+
+    return r
 
 
 @views.get("/badge.png")
