@@ -4,7 +4,7 @@
 
 {% block description %}Ari-web: A personal website of a Lithuanian open source developer Ari Archer (Arija A.) who provides different free, private, and open source services for others.{% endblock %}
 
-{% block keywords %}ari::web, services, foss services, homepage, portfolio, resume, matrix, says, https, email{% endblock %}
+{% block keywords %}ari::web, services, foss services, homepage, portfolio, resume, matrix, says, https, email, guestbook{% endblock %}
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for("static", filename="fonts/Hack.css") }}" type="text/css" referrerpolicy="no-referrer" />
@@ -141,7 +141,7 @@
             <li>Age: {{ ari_age }} years old.</li>
             <li>Education: Primary school, middle school, high school (ongoing).</li>
             <li>Country: Lithuania (Lietuva).</li>
-            <li>Languages: Lithuanian (native, {{ ari_age }}y), English (B2, {{ ari_age - 8 }}y), German (basic, {{ ari_age - 12 }}y).</li>
+            <li>Languages: Lithuanian (native, {{ ari_age }}y), English (B2, {{ ari_age - 8 }}y), German (basic, 4y - not taking it since age 16 (11th grade), rarely using it casually).</li>
             <li>Programming Experience: {{ programming_exp }} years ({{python_exp }}y in Python, {{ c_exp }}y in C).</li>
             <li>Skills: Backend web development in Python using Flask, basic front-end development (HTML, JS, CSS, SCSS) and SEO (search engine optimization), software and library development in C and Python, Linux and intermediate Linux systems administration, technical documentation and specifications, application of different mathematical methods.</li>
             <li>Learning: Better communication skills, self-improvement, cryptography (post-quantum cryptography), working on mental health and emotional grounding.</li>
